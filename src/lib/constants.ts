@@ -65,34 +65,3 @@ export const MENU_CATEGORIES = [
     ],
   },
 ] as const;
-
-export const STATS = [
-  { value: "€25", label: "Scontrino Medio" },
-  { value: "<10%", label: "Food Cost" },
-  { value: "€75-90K", label: "Investimento" },
-  { value: "40-50", label: "Coperti" },
-  { value: "12H", label: "Orario" },
-] as const;
-
-export const WHY_CHOOSE_US = [
-  {
-    title: "Qualità Premium",
-    description: "Patate selezionate e sughi fatti in casa",
-    icon: "Award",
-  },
-  {
-    title: "Velocità",
-    description: "Servizio rapido senza attese",
-    icon: "Zap",
-  },
-  {
-    title: "Innovazione",
-    description: "Ricette uniche e sfiziose",
-    icon: "Sparkles",
-  },
-  {
-    title: "Esperienza",
-    description: "Solo ingredienti italiani d'eccellenza",
-    icon: "Heart",
-  },
-] as const;
