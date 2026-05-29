@@ -100,7 +100,7 @@ export default function Home() {
       </section>
 
       {/* Distinction Section */}
-      <section className="section-padding relative">
+      <section className="section-padding relative z-10 bg-[#050505]">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
             <ScrollReveal direction="right">
