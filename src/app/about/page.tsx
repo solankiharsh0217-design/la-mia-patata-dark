@@ -6,8 +6,8 @@ import { ChefHat, Heart, Award, Users, Sparkles } from "lucide-react";
 
 export default function AboutPage() {
   const IMAGES = {
-    hero: "https://images.unsplash.com/photo-1518977676601-b53f02bad67b?q=80&w=2070",
-    narrative: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=2070"
+    hero: "/images/hero.jpg",
+    narrative: "/images/narrative.jpg"
   };
 
   return (

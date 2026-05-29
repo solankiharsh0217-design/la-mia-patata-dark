@@ -9,9 +9,9 @@ import { SITE, MENU_CATEGORIES, STATS, WHY_CHOOSE_US } from "@/lib/constants";
 
 export default function Home() {
   const IMAGES = {
-    hero: "https://images.unsplash.com/photo-1518977676601-b53f02bad67b?q=80&w=2070",
-    selection: "https://images.unsplash.com/photo-1598103442097-8b74394b95c6?q=80&w=1976",
-    cta: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070"
+    hero: "/images/hero.jpg",
+    selection: "/images/selection.jpg",
+    cta: "/images/cta.jpg"
   };
 
   return (
@@ -68,6 +68,7 @@ export default function Home() {
             </div>
           </ScrollReveal>
 
+          {/* Luxury Stats */}
           <ScrollReveal delay={0.8} className="mt-32">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-12 max-w-4xl mx-auto pt-16 border-t border-white/5">
               {STATS.slice(0, 4).map((stat, i) => (
@@ -113,6 +114,7 @@ export default function Home() {
                     className="object-cover transition-all duration-1000 scale-110 hover:scale-100"
                   />
                 </div>
+                {/* Floating Distinction Badge */}
                 <motion.div 
                   animate={{ y: [0, -20, 0] }}
                   transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}

@@ -7,9 +7,9 @@ import { UtensilsCrossed, Award } from "lucide-react";
 
 export default function MenuPage() {
   const IMAGES = {
-    hero: "https://images.unsplash.com/photo-1518977676601-b53f02bad67b?q=80&w=2070",
-    menu1: "https://images.unsplash.com/photo-1598103442097-8b74394b95c6?q=80&w=1976",
-    menu2: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070"
+    hero: "/images/hero.jpg",
+    menu1: "/images/menu1.jpg",
+    menu2: "/images/menu2.jpg"
   };
 
   return (
