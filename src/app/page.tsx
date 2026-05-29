@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <div className="overflow-hidden bg-[#050505] text-white">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-24">
+      <section className="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src={IMAGES.hero}
