@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Sparkles, ChefHat, Flame, Utensils, Award } from "lucide-react";
+import { ArrowRight, Star, Sparkles, ChefHat, Flame, Utensils, Award } from "lucide-react";
 import { motion } from "framer-motion";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import { SITE, MENU_CATEGORIES } from "@/lib/constants";
+import { SITE, MENU_CATEGORIES, STATS, WHY_CHOOSE_US } from "@/lib/constants";
 
 export default function Home() {
   const IMAGES = {
@@ -68,6 +68,19 @@ export default function Home() {
             </div>
           </ScrollReveal>
 
+          {/* Luxury Stats */}
+          <ScrollReveal delay={0.8} className="mt-32">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-12 max-w-4xl mx-auto pt-16 border-t border-white/5">
+              {STATS.slice(0, 4).map((stat, i) => (
+                <div key={i} className="group flex flex-col items-center">
+                  <div className="text-4xl font-serif font-bold text-[#D4AF37] mb-2 group-hover:scale-110 transition-transform duration-700 tracking-widest">
+                    {stat.value}
+                  </div>
+                  <div className="text-[9px] uppercase tracking-[0.4em] text-white/30 font-bold">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </ScrollReveal>
         </div>
 
         <motion.div 
@@ -204,6 +217,31 @@ export default function Home() {
               View All Collections
             </Link>
           </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Distinction Highlights */}
+      <section className="section-padding bg-black">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16">
+            {WHY_CHOOSE_US.map((item, i) => (
+              <ScrollReveal key={i} delay={i * 0.1} direction="up">
+                <div className="text-center group flex flex-col items-center">
+                  <div className="w-24 h-24 border border-[#D4AF37]/20 flex items-center justify-center mb-10 group-hover:border-[#D4AF37] transition-all duration-700 rotate-45 group-hover:rotate-0">
+                    <div className="-rotate-45 group-hover:rotate-0 transition-transform duration-700">
+                       <Star className="text-[#D4AF37]" size={32} strokeWidth={1} />
+                    </div>
+                  </div>
+                  <h4 className="text-xl font-serif font-bold text-white mb-6 uppercase tracking-[0.2em]">
+                    {item.title}
+                  </h4>
+                  <p className="text-white/50 text-[10px] leading-loose uppercase tracking-[0.3em] font-light">
+                    {item.description}
+                  </p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </section>
 
