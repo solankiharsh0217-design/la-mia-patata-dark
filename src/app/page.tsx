@@ -186,8 +186,8 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {MENU_CATEGORIES.map((category, i) => (
-              <ScrollReveal key={category.id} delay={i * 0.1} direction="up">
-                <div className="group card !p-12 border-white/5 hover:border-[#D4AF37]/30 bg-black/40">
+              <ScrollReveal key={category.id} delay={i * 0.1} direction="up" className="h-full">
+                <div className="group card !p-12 border-white/5 hover:border-[#D4AF37]/30 bg-black/40 h-full flex flex-col">
                   <div className="flex items-center justify-between mb-12">
                     <div className="text-5xl font-serif font-bold text-white/10 group-hover:text-[#D4AF37]/40 transition-colors duration-700">
                       0{i + 1}
@@ -197,10 +197,10 @@ export default function Home() {
                   <h4 className="text-3xl font-serif font-bold text-white mb-6 tracking-widest uppercase group-hover:text-[#D4AF37] transition-colors duration-700">
                     {category.name}
                   </h4>
-                  <p className="text-white/60 mb-10 leading-loose font-light uppercase tracking-widest text-xs">
+                  <p className="text-white/60 mb-10 leading-loose font-light uppercase tracking-widest text-xs flex-grow">
                     {category.description}
                   </p>
-                  <div className="flex flex-wrap gap-4">
+                  <div className="flex flex-wrap gap-4 mt-auto">
                     {category.items.slice(0, 4).map((item, j) => (
                       <span key={j} className="text-[9px] font-bold uppercase tracking-[0.3em] text-[#D4AF37] border border-[#D4AF37]/20 px-4 py-2 hover:bg-[#D4AF37] hover:text-black transition-all duration-500">
                         {item.name}

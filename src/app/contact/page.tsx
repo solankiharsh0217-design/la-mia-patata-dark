@@ -39,7 +39,7 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-32">
             {/* Info */}
-            <ScrollReveal direction="right">
+            <ScrollReveal direction="right" className="h-full">
               <h2 className="text-4xl font-serif font-bold text-white mb-16 uppercase tracking-widest">
                 Direct <span className="text-gold italic">Lines</span>
               </h2>
@@ -71,7 +71,7 @@ export default function ContactPage() {
             </ScrollReveal>
 
             {/* Form */}
-            <ScrollReveal direction="left">
+            <ScrollReveal direction="left" className="h-full">
               <div className="bg-black/40 p-12 md:p-16 border border-white/5 relative overflow-hidden h-full flex flex-col justify-center">
                 <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-[#D4AF37]/5 rounded-full blur-[100px]" />
                 

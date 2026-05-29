@@ -74,14 +74,14 @@ export default function MenuPage() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                 {category.items.map((item, j) => (
-                  <ScrollReveal key={j} delay={j * 0.05} direction="up">
-                    <div className="group luxury-border bg-white/5 p-10 hover:bg-[#D4AF37]/5 transition-all duration-700 h-full">
+                  <ScrollReveal key={j} delay={j * 0.05} direction="up" className="h-full">
+                    <div className="group luxury-border bg-white/5 p-10 hover:bg-[#D4AF37]/5 transition-all duration-700 h-full flex flex-col">
                       <div className="flex justify-between items-start mb-6">
                         <h3 className="text-xl font-serif font-bold text-white uppercase tracking-widest group-hover:text-[#D4AF37] transition-colors duration-700">
                           {item.name}
                         </h3>
                       </div>
-                      <p className="text-white/50 text-[10px] font-light leading-loose uppercase tracking-[0.3em]">
+                      <p className="text-white/50 text-[10px] font-light leading-loose uppercase tracking-[0.3em] flex-grow">
                         {item.description}
                       </p>
                     </div>

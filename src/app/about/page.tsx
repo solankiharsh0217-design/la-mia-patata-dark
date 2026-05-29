@@ -129,13 +129,13 @@ export default function AboutPage() {
                 desc: "Sfidiamo i confini del gusto con eleganza e audacia."
               }
             ].map((value, i) => (
-              <ScrollReveal key={i} delay={i * 0.1} direction="up">
+              <ScrollReveal key={i} delay={i * 0.1} direction="up" className="h-full">
                 <div className="group luxury-border p-12 bg-black/40 hover:bg-[#D4AF37]/5 transition-all duration-700 h-full flex flex-col items-center text-center">
                   <div className="mb-10 transform group-hover:scale-125 transition-all duration-700 opacity-60 group-hover:opacity-100">{value.icon}</div>
                   <h3 className="text-2xl font-serif font-bold text-white mb-6 uppercase tracking-[0.2em]">
                     {value.title}
                   </h3>
-                  <p className="text-white/50 text-[10px] uppercase tracking-[0.3em] leading-loose font-medium">
+                  <p className="text-white/50 text-[10px] uppercase tracking-[0.3em] leading-loose font-medium flex-grow">
                     {value.desc}
                   </p>
                 </div>
