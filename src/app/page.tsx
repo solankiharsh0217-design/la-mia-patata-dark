@@ -8,15 +8,20 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 import { SITE, MENU_CATEGORIES, STATS, WHY_CHOOSE_US } from "@/lib/constants";
 
 export default function Home() {
+  const IMAGES = {
+    hero: "https://images.unsplash.com/photo-1518977676601-b53f02bad67b?q=80&w=2070",
+    selection: "https://images.unsplash.com/photo-1598103442097-8b74394b95c6?q=80&w=1976",
+    cta: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070"
+  };
+
   return (
     <div className="overflow-hidden bg-[#050505] text-white">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center pt-24">
-        {/* Background Image with Cinematic Overlay */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/hero.jpg"
-            alt="Hero Background"
+            src={IMAGES.hero}
+            alt="Luxury Potatoes"
             fill
             className="object-cover opacity-60 scale-105"
             priority
@@ -25,7 +30,6 @@ export default function Home() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)]" />
         </div>
 
-        {/* Floating Luxury Elements */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-[#D4AF37]/5 rounded-full blur-[180px] animate-pulse" />
           <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-[#AA841E]/10 rounded-full blur-[150px] animate-pulse" style={{ animationDelay: '2s' }} />
@@ -64,7 +68,6 @@ export default function Home() {
             </div>
           </ScrollReveal>
 
-          {/* Luxury Stats */}
           <ScrollReveal delay={0.8} className="mt-32">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-12 max-w-4xl mx-auto pt-16 border-t border-white/5">
               {STATS.slice(0, 4).map((stat, i) => (
@@ -79,7 +82,6 @@ export default function Home() {
           </ScrollReveal>
         </div>
 
-        {/* Scroll Indicator */}
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -105,13 +107,12 @@ export default function Home() {
                 <div className="absolute -inset-4 border border-[#D4AF37]/20 translate-x-8 translate-y-8 -z-10 group-hover:translate-x-4 group-hover:translate-y-4 transition-transform duration-700" />
                 <div className="relative aspect-[4/5] luxury-border overflow-hidden">
                   <Image
-                    src="/images/menu1.jpg"
+                    src={IMAGES.selection}
                     alt="Premium Selection"
                     fill
                     className="object-cover transition-all duration-1000 scale-110 hover:scale-100"
                   />
                 </div>
-                {/* Floating Distinction Badge */}
                 <motion.div 
                   animate={{ y: [0, -20, 0] }}
                   transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
@@ -246,8 +247,8 @@ export default function Home() {
       <section className="py-40 relative overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/menu2.jpg"
-            alt="CTA Background"
+            src={IMAGES.cta}
+            alt="Luxury Dining"
             fill
             className="object-cover opacity-60"
           />

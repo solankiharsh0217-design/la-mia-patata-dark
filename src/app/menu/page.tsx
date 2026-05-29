@@ -6,13 +6,19 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 import { UtensilsCrossed, Award } from "lucide-react";
 
 export default function MenuPage() {
+  const IMAGES = {
+    hero: "https://images.unsplash.com/photo-1518977676601-b53f02bad67b?q=80&w=2070",
+    menu1: "https://images.unsplash.com/photo-1598103442097-8b74394b95c6?q=80&w=1976",
+    menu2: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070"
+  };
+
   return (
     <div className="bg-[#050505] min-h-screen text-white">
       {/* Hero */}
       <section className="relative pt-48 pb-32 overflow-hidden border-b border-white/5">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/hero.jpg"
+            src={IMAGES.hero}
             alt="Menu Background"
             fill
             className="object-cover opacity-20"
@@ -57,7 +63,7 @@ export default function MenuPage() {
                   </div>
                   <div className="relative w-full md:w-64 h-40 luxury-border overflow-hidden hidden md:block">
                      <Image
-                        src={i % 2 === 0 ? "/images/menu1.jpg" : "/images/menu2.jpg"}
+                        src={i % 2 === 0 ? IMAGES.menu1 : IMAGES.menu2}
                         alt={category.name}
                         fill
                         className="object-cover opacity-60 hover:opacity-100 transition-opacity duration-700"
@@ -91,7 +97,7 @@ export default function MenuPage() {
       <section className="py-32 bg-black border-y border-[#D4AF37]/20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <Image
-            src="/images/menu2.jpg"
+            src={IMAGES.menu2}
             alt="Signature"
             fill
             className="object-cover"

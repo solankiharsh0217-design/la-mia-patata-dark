@@ -5,13 +5,18 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 import { ChefHat, Heart, Award, Users, Sparkles } from "lucide-react";
 
 export default function AboutPage() {
+  const IMAGES = {
+    hero: "https://images.unsplash.com/photo-1518977676601-b53f02bad67b?q=80&w=2070",
+    narrative: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=2070"
+  };
+
   return (
     <div className="bg-[#050505] min-h-screen text-white">
       {/* Hero */}
       <section className="relative pt-48 pb-32 overflow-hidden border-b border-white/5">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/hero.jpg"
+            src={IMAGES.hero}
             alt="About Background"
             fill
             className="object-cover opacity-30"
@@ -43,7 +48,7 @@ export default function AboutPage() {
                 <div className="absolute -inset-4 border border-[#D4AF37]/20 translate-x-8 translate-y-8 -z-10" />
                 <div className="relative aspect-[4/5] luxury-border overflow-hidden bg-black">
                   <Image
-                    src="/images/menu1.jpg"
+                    src={IMAGES.narrative}
                     alt="Our Narrative"
                     fill
                     className="object-cover opacity-90 transition-transform duration-[2s] group-hover:scale-105"
