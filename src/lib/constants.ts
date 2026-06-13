@@ -19,52 +19,145 @@ export const SITE = {
   },
 } as const;
 
-export const MENU_CATEGORIES = [
+export type AllergenCode = "GF" | "U" | "L" | "P" | "C" | "M";
+
+export const ALLERGEN_LABELS: Record<AllergenCode, string> = {
+  GF: "Senza Glutine",
+  U: "Uova",
+  L: "Latticini",
+  P: "Pesce",
+  C: "Crostacei",
+  M: "Molluschi",
+};
+
+export interface MenuItem {
+  name: string;
+  description: string;
+  allergens: AllergenCode[];
+}
+
+export interface MenuCategory {
+  id: string;
+  name: string;
+  description: string;
+  image: string;
+  items: MenuItem[];
+}
+
+export const MENU_CATEGORIES: MenuCategory[] = [
   {
-    id: "baked",
-    name: "Baked Potato",
-    description: "La firma del locale. Patata al forno aperta al momento con sughi a scelta.",
+    id: "fritti",
+    name: "Fritti",
+    description: "Croccantezze multicolor in farina gluten free. Dalla buccia ai fiammiferi arcobaleno.",
+    image: "/images/menu-fritti.jpg",
     items: [
-      { name: "Carbonara", description: "Pecorino, guanciale, uovo" },
-      { name: "Ragù", description: "Brasato di manzo" },
-      { name: "4 Formaggi", description: "Mozzarella, gorgonzola, fontina, parmigiano" },
-      { name: "Salmone", description: "Salmone affumicato, crema di formaggio" },
-      { name: "Cacio e Pepe", description: "Pecorino romano, pepe nero" },
-      { name: "Burro di Normandia", description: "Burro salato, erba cipollina" },
-      { name: "Gorgonzola", description: "Gorgonzola dolce, noci" },
+      { name: "Buccia Multicolor", description: "Bucce di patate miste croccanti in farina GF", allergens: ["GF"] },
+      { name: "Stick Gialla", description: "Bastoncini di patata gialla fritta in farina GF", allergens: ["GF"] },
+      { name: "Chips Multicolor", description: "Chips di patate colorate, leggere e croccanti", allergens: ["GF"] },
+      { name: "Fiammiferi Multicolor", description: "Julienne di patate, zucchine e carote in farina GF", allergens: ["GF"] },
+      { name: "Twister", description: "Patata rossa o gialla arrotolata su spiedo", allergens: ["GF"] },
     ],
   },
   {
-    id: "friti",
-    name: "Fritti & Street",
-    description: "Patatine fritte croccanti e sfiziosità da passeggio.",
+    id: "forno",
+    name: "Forno",
+    description: "Patate aromatizzate con olio EVO, aglio, rosmarino, salvia e timo.",
+    image: "/images/menu-forno.jpg",
     items: [
-      { name: "Patatine Fritte", description: "Croccanti, sale rosmarino" },
-      { name: "Crocchette", description: "Patata e mozzarella, panatura artigianale" },
-      { name: "Patata Tornado", description: "Lo sfidONE da mezzo metro su spiedo" },
+      { name: "Gialla al Rosmarino", description: "Olio EVO, aglio, rosmarino, salvia, timo", allergens: ["GF"] },
+      { name: "Rossa al Parmigiano e Speck", description: "Crema di parmigiano, burro, latte, noce moscata, speck", allergens: ["GF", "L"] },
+      { name: "Gialla Soffiate", description: "Patata gialla soffice al forno, aromatizzata", allergens: ["GF"] },
     ],
   },
   {
-    id: "bolliti",
-    name: "Bolliti & Insalate",
-    description: "Opzioni più leggere per ogni palato.",
+    id: "puree",
+    name: "Purè",
+    description: "Purè vellutato con patata, burro e parmigiano. La comfort food italiana nella sua essenza.",
+    image: "/images/menu-puree.jpg",
     items: [
-      { name: "Insalata Mediterranea", description: "Pomodori, olive, mozzarella" },
-      { name: "Polipo e Patate", description: "Polipo bollito, patate, prezzemolo" },
-      { name: "Patate e Zucchine", description: "Zucchine grigliate, patate, feta" },
+      { name: "Polpette al Sugo", description: "Polpette di vitello con pomodoro pelato e scalogno", allergens: ["GF", "U", "L"] },
+      { name: "Polipo e Olive Nere", description: "Polipo, aglio, prezzemolo, vino bianco, olive e capperi", allergens: ["GF", "L", "M"] },
     ],
   },
   {
-    id: "purezza",
-    name: "Purè & Forno",
-    description: "Purè cremoso e piatti al forno con condimenti italiani.",
+    id: "gnocchi",
+    name: "Gnocchi",
+    description: "Gnocchi di patata in farina gluten free, soffici e leggeri, con sughi d'autore.",
+    image: "/images/menu-gnocchi.jpg",
     items: [
-      { name: "Purè con Polpette", description: "Polpette di manzo, formaggio filante" },
-      { name: "Parmigiana di Patate", description: "Pomodoro, mozzarella, basilico" },
-      { name: "Patate al Forno", description: "Rosmarino, aglio, parmigiano" },
+      { name: "4 Formaggi", description: "Parmigiano, gorgonzola, taleggio, scamorza", allergens: ["GF", "U", "L"] },
+      { name: "Carbonara", description: "Pecorino, uovo, pepe nero, parmigiano e bacon", allergens: ["GF", "U", "L"] },
+      { name: "Sorrentina", description: "Pomodori pelati, scalogno, basilico, parmigiano", allergens: ["GF", "U", "L"] },
+      { name: "Funghi e Salsiccia", description: "Champignon, scalogno, salsiccia artigianale, vino rosso", allergens: ["GF", "U"] },
+      { name: "Gamberi e Zucchine", description: "Gamberi argentini al brandy, zucchine con basilico", allergens: ["GF", "U", "C"] },
     ],
   },
-] as const;
+  {
+    id: "barchetta",
+    name: "Barchetta",
+    description: "Patata lessa a forma di barchetta, riempita con ingredienti freschi e creativi.",
+    image: "/images/menu-barchetta.jpg",
+    items: [
+      { name: "Viola Salmone", description: "Patata viola, salmone marinato agli agrumi, guacamole", allergens: ["P"] },
+      { name: "Viola Polipo", description: "Patata viola, polipo, olive taggiasche e capperi", allergens: ["M"] },
+      { name: "Rossa Funghi, Salsiccia e Taleggio", description: "Patata rossa con funghi, salsiccia e taleggio fondente", allergens: ["L"] },
+      { name: "Gialla Picanha e Chimichurri", description: "Patata gialla con picanha alle erbe e salsa chimichurri", allergens: [] },
+    ],
+  },
+  {
+    id: "schiacciata",
+    name: "Schiacciata",
+    description: "Patata schiacciata e croccante come pane, farcita con ingredienti selezionati.",
+    image: "/images/menu-schiacciata.jpg",
+    items: [
+      { name: "Viola Funghi e Salsiccia", description: "Schiacciata di patata viola con funghi e salsiccia", allergens: [] },
+      { name: "Rossa Speck e Brie", description: "Schiacciata di patata rossa con speck e brie cremoso", allergens: ["L"] },
+    ],
+  },
+  {
+    id: "waffle",
+    name: "Waffle",
+    description: "Waffle di patata croccante fuori, morbido dentro. Base per abbinamenti gourmet.",
+    image: "/images/menu-waffle.jpg",
+    items: [
+      { name: "Rossa Uovo e Avocado", description: "Waffle di patata rossa, uovo sodo, avocado e salsa all'erba cipollina", allergens: ["U", "L"] },
+      { name: "Gialla Salmone e Burro Salato", description: "Waffle di patata gialla, salmone fresco marinato e burro salato", allergens: ["P", "L"] },
+    ],
+  },
+  {
+    id: "vapore",
+    name: "Vapore",
+    description: "Patate al vapore, leggere e digeribili. Abbinamenti freschi e mediterranei.",
+    image: "/images/menu-vapore.jpg",
+    items: [
+      { name: "Mediterranea", description: "Feta greca, San Marzano, cipolla di Tropea, olive taggiasche, fiori di cappero", allergens: ["L"] },
+      { name: "Polipo, Olive e Julienne", description: "Polipo con julienne di verdure, olive taggiasche, prezzemolo e limone", allergens: ["M"] },
+      { name: "Gamberi e Zucchine", description: "Gamberi argentini e zucchine con olio EVO e basilico", allergens: ["C"] },
+      { name: "Uovo, Avocado e Salmone", description: "Uovo sodo, avocado fresco e salmone marinato", allergens: ["U", "P"] },
+    ],
+  },
+  {
+    id: "jacket",
+    name: "Jacket",
+    description: "La patata intera al forno, aperta e ripiena generosamente. Il piatto signature.",
+    image: "/images/menu-jacket.jpg",
+    items: [
+      { name: "Carbonara", description: "Pecorino romano, uovo, pepe nero, parmigiano e bacon croccante", allergens: ["U", "L"] },
+      { name: "Speck e Brie", description: "Speck croccante e brie fondente", allergens: ["L"] },
+      { name: "Salsiccia, Porcini e Gorgonzola", description: "Salsiccia artigianale, funghi porcini e gorgonzola DOP", allergens: ["L"] },
+    ],
+  },
+  {
+    id: "tramezzino",
+    name: "Tramezzino",
+    description: "Il tramezzino reinterpretato: due fette di patata schiacciata al posto del pane.",
+    image: "/images/menu-tramezzino.jpg",
+    items: [
+      { name: "Prosciutto Cotto e Brie", description: "Prosciutto cotto di qualità e brie cremoso", allergens: ["L"] },
+      { name: "Speck, Taleggio e Zucchine", description: "Speck stagionato, taleggio fondente e zucchine grigliate", allergens: ["L"] },
+    ],
+  },
+];
 
 export const STATS = [
   { value: "40-50", label: "Coperti" },

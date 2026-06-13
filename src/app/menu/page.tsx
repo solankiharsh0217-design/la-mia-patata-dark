@@ -1,24 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import { MENU_CATEGORIES } from "@/lib/constants";
+import { MENU_CATEGORIES, ALLERGEN_LABELS, AllergenCode } from "@/lib/constants";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { UtensilsCrossed, Award } from "lucide-react";
 
 export default function MenuPage() {
-  const IMAGES = {
-    hero: "/images/hero.jpg",
-    menu1: "/images/menu1.jpg",
-    menu2: "/images/menu2.jpg"
-  };
-
   return (
     <div className="bg-[#050505] min-h-screen text-white">
       {/* Hero */}
       <section className="relative pt-48 pb-32 overflow-hidden border-b border-white/5">
         <div className="absolute inset-0 z-0">
           <Image
-            src={IMAGES.hero}
+            src="/images/hero.jpg"
             alt="Menu Background"
             fill
             className="object-cover opacity-20"
@@ -26,7 +20,7 @@ export default function MenuPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-[#050505]" />
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.1)_0,transparent_70%)]" />
         </div>
-        
+
         <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
           <ScrollReveal direction="down">
             <div className="inline-flex items-center gap-4 text-[#D4AF37] mb-10">
@@ -53,7 +47,9 @@ export default function MenuPage() {
               <ScrollReveal direction="up">
                 <div className="flex flex-col md:flex-row items-end justify-between mb-20 gap-8">
                   <div className="max-w-2xl">
-                    <div className="text-6xl font-serif font-bold text-white/5 mb-6">0{i + 1}</div>
+                    <div className="text-6xl font-serif font-bold text-white/5 mb-6">
+                      {String(i + 1).padStart(2, "0")}
+                    </div>
                     <h2 className="text-5xl md:text-7xl font-serif font-bold text-white mb-6 uppercase tracking-widest">
                       {category.name}
                     </h2>
@@ -62,12 +58,12 @@ export default function MenuPage() {
                     </p>
                   </div>
                   <div className="relative w-full md:w-64 h-40 luxury-border overflow-hidden hidden md:block">
-                     <Image
-                        src={i % 2 === 0 ? IMAGES.menu1 : IMAGES.menu2}
-                        alt={category.name}
-                        fill
-                        className="object-cover opacity-60 hover:opacity-100 transition-opacity duration-700"
-                     />
+                    <Image
+                      src={category.image}
+                      alt={category.name}
+                      fill
+                      className="object-cover opacity-60 hover:opacity-100 transition-opacity duration-700"
+                    />
                   </div>
                 </div>
               </ScrollReveal>
@@ -76,14 +72,25 @@ export default function MenuPage() {
                 {category.items.map((item, j) => (
                   <ScrollReveal key={j} delay={j * 0.05} direction="up" className="h-full">
                     <div className="group luxury-border bg-white/5 p-10 hover:bg-[#D4AF37]/5 transition-all duration-700 h-full flex flex-col">
-                      <div className="flex justify-between items-start mb-6">
-                        <h3 className="text-xl font-serif font-bold text-white uppercase tracking-widest group-hover:text-[#D4AF37] transition-colors duration-700">
-                          {item.name}
-                        </h3>
-                      </div>
+                      <h3 className="text-xl font-serif font-bold text-white uppercase tracking-widest group-hover:text-[#D4AF37] transition-colors duration-700 mb-4">
+                        {item.name}
+                      </h3>
                       <p className="text-white/50 text-[10px] font-light leading-loose uppercase tracking-[0.3em] flex-grow">
                         {item.description}
                       </p>
+                      {item.allergens.length > 0 && (
+                        <div className="flex flex-wrap gap-2 mt-6">
+                          {item.allergens.map((code) => (
+                            <span
+                              key={code}
+                              title={ALLERGEN_LABELS[code]}
+                              className="text-[8px] font-bold uppercase tracking-widest border border-[#D4AF37]/30 text-[#D4AF37]/60 px-2 py-1"
+                            >
+                              {code}
+                            </span>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   </ScrollReveal>
                 ))}
@@ -97,7 +104,7 @@ export default function MenuPage() {
       <section className="py-32 bg-black border-y border-[#D4AF37]/20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <Image
-            src={IMAGES.menu2}
+            src="/images/menu-jacket.jpg"
             alt="Signature"
             fill
             className="object-cover"
@@ -111,7 +118,7 @@ export default function MenuPage() {
               Curate Your <span className="text-gold italic">Experience</span>
             </h2>
             <p className="text-white/60 max-w-2xl mx-auto text-sm mb-16 font-light uppercase tracking-[0.4em] leading-loose">
-              Personalizza la tua base con la nostra selezione di 8 sughi d&apos;autore preparati giornalmente.
+              Personalizza la tua base con la nostra selezione di sughi d&apos;autore preparati giornalmente.
             </p>
             <div className="flex flex-wrap justify-center gap-8">
               {["Carbonara", "Ragù", "4 Formaggi", "Cacio e Pepe", "Pesto", "Amatriciana", "Gorgonzola"].map((sugho, i) => (
@@ -121,6 +128,26 @@ export default function MenuPage() {
               ))}
             </div>
           </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Allergen Footnote */}
+      <section className="py-16 px-6 bg-[#050505]">
+        <div className="max-w-7xl mx-auto border-t border-white/5 pt-12 space-y-6">
+          <p className="text-[9px] text-white/40 uppercase tracking-[0.4em] font-bold">
+            Legenda Allergeni
+          </p>
+          <div className="flex flex-wrap gap-6">
+            {(Object.entries(ALLERGEN_LABELS) as [AllergenCode, string][]).map(([code, label]) => (
+              <span key={code} className="text-[9px] text-white/30 uppercase tracking-[0.2em]">
+                <span className="text-[#D4AF37]/60 font-bold">{code}</span> — {label}
+              </span>
+            ))}
+          </div>
+          <p className="text-[9px] text-white/20 uppercase tracking-[0.2em] leading-loose max-w-4xl">
+            Tutti i fritti sono preparati con farine gluten free. Il menu contiene uova e latticini.
+            Per allergie o intolleranze specifiche si prega di comunicarlo al personale prima di ordinare.
+          </p>
         </div>
       </section>
     </div>
