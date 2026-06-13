@@ -67,7 +67,7 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     items: [
       { name: "Gialla al Rosmarino", description: "Olio EVO, aglio, rosmarino, salvia, timo", allergens: ["GF"], image: "/images/item-forno-rosmarino.jpg" },
       { name: "Rossa al Parmigiano e Speck", description: "Crema di parmigiano, burro, latte, noce moscata, speck", allergens: ["GF", "L"], image: "/images/item-forno-speck.jpg" },
-      { name: "Gialla Soffiate", description: "Patata gialla soffice al forno, aromatizzata", allergens: ["GF"] },
+      { name: "Gialla Soffiate", description: "Patata gialla soffice al forno, aromatizzata", allergens: ["GF"], image: "/images/item-forno-soffiate.jpg" },
     ],
   },
   {
@@ -99,10 +99,10 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     description: "Patata lessa a forma di barchetta, riempita con ingredienti freschi e creativi.",
     image: "/images/menu-barchetta.jpg",
     items: [
-      { name: "Viola Salmone", description: "Patata viola, salmone marinato agli agrumi, guacamole", allergens: ["P"], image: "/images/menu-barchetta.jpg" },
+      { name: "Viola Salmone", description: "Patata viola, salmone marinato agli agrumi, guacamole", allergens: ["P"], image: "/images/item-barchetta-salmone.jpg" },
       { name: "Viola Polipo", description: "Patata viola, polipo, olive taggiasche e capperi", allergens: ["M"], image: "/images/item-barchetta-polipo.jpg" },
-      { name: "Rossa Funghi, Salsiccia e Taleggio", description: "Patata rossa con funghi, salsiccia e taleggio fondente", allergens: ["L"] },
-      { name: "Gialla Picanha e Chimichurri", description: "Patata gialla con picanha alle erbe e salsa chimichurri", allergens: [], image: "/images/item-barchetta-picanha.jpg" },
+      { name: "Rossa Funghi, Salsiccia e Taleggio", description: "Patata rossa con funghi, salsiccia e taleggio fondente", allergens: ["L"], image: "/images/item-barchetta-funghi.jpg" },
+      { name: "Gialla Picanha e Chimichurri", description: "Patata gialla with picanha alle erbe e salsa chimichurri", allergens: [], image: "/images/item-barchetta-picanha.jpg" },
     ],
   },
   {
@@ -121,8 +121,8 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     description: "Waffle di patata croccante fuori, morbido dentro. Base per abbinamenti gourmet.",
     image: "/images/menu-waffle.jpg",
     items: [
-      { name: "Rossa Uovo e Avocado", description: "Waffle di patata rossa, uovo sodo, avocado e salsa all'erba cipollina", allergens: ["U", "L"], image: "/images/menu-waffle.jpg" },
-      { name: "Gialla Salmone e Burro Salato", description: "Waffle di patata gialla, salmone fresco marinato e burro salato", allergens: ["P", "L"] },
+      { name: "Rossa Uovo e Avocado", description: "Waffle di patata rossa, uovo sodo, avocado e salsa all'erba cipollina", allergens: ["U", "L"], image: "/images/item-waffle-uovo.jpg" },
+      { name: "Gialla Salmone e Burro Salato", description: "Waffle di patata gialla, salmone fresco marinato e burro salato", allergens: ["P", "L"], image: "/images/item-waffle-salmone.jpg" },
     ],
   },
   {
@@ -132,9 +132,9 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     image: "/images/menu-vapore.jpg",
     items: [
       { name: "Mediterranea", description: "Feta greca, San Marzano, cipolla di Tropea, olive taggiasche, fiori di cappero", allergens: ["L"], image: "/images/item-vapore-mediterranea.jpg" },
-      { name: "Polipo, Olive e Julienne", description: "Polipo con julienne di verdure, olive taggiasche, prezzemolo e limone", allergens: ["M"], image: "/images/menu-vapore.jpg" },
+      { name: "Polipo, Olive e Julienne", description: "Polipo con julienne di verdure, olive taggiasche, prezzemolo e limone", allergens: ["M"], image: "/images/item-vapore-polipo.jpg" },
       { name: "Gamberi e Zucchine", description: "Gamberi argentini e zucchine con olio EVO e basilico", allergens: ["C"], image: "/images/item-vapore-gamberi.jpg" },
-      { name: "Uovo, Avocado e Salmone", description: "Uovo sodo, avocado fresco e salmone marinato", allergens: ["U", "P"] },
+      { name: "Uovo, Avocado e Salmone", description: "Uovo sodo, avocado fresco e salmone marinato", allergens: ["U", "P"], image: "/images/item-vapore-uovo.jpg" },
     ],
   },
   {
@@ -143,9 +143,9 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     description: "La patata intera al forno, aperta e ripiena generosamente. Il piatto signature.",
     image: "/images/menu-jacket.jpg",
     items: [
-      { name: "Carbonara", description: "Pecorino romano, uovo, pepe nero, parmigiano e bacon croccante", allergens: ["U", "L"] },
-      { name: "Speck e Brie", description: "Speck croccante e brie fondente", allergens: ["L"], image: "/images/item-jacket-formaggio.jpg" },
-      { name: "Salsiccia, Porcini e Gorgonzola", description: "Salsiccia artigianale, funghi porcini e gorgonzola DOP", allergens: ["L"], image: "/images/menu-jacket.jpg" },
+      { name: "Carbonara", description: "Pecorino romano, uovo, pepe nero, parmigiano e bacon croccante", allergens: ["U", "L"], image: "/images/item-jacket-carbonara.jpg" },
+      { name: "Speck e Brie", description: "Speck croccante e brie fondente", allergens: ["L"], image: "/images/item-jacket-speck.jpg" },
+      { name: "Salsiccia, Porcini e Gorgonzola", description: "Salsiccia artigianale, funghi porcini e gorgonzola DOP", allergens: ["L"], image: "/images/item-jacket-salsiccia.jpg" },
     ],
   },
   {
@@ -154,8 +154,8 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     description: "Il tramezzino reinterpretato: due fette di patata schiacciata al posto del pane.",
     image: "/images/menu-tramezzino.jpg",
     items: [
-      { name: "Prosciutto Cotto e Brie", description: "Prosciutto cotto di qualità e brie cremoso", allergens: ["L"] },
-      { name: "Speck, Taleggio e Zucchine", description: "Speck stagionato, taleggio fondente e zucchine grigliate", allergens: ["L"], image: "/images/menu-tramezzino.jpg" },
+      { name: "Prosciutto Cotto e Brie", description: "Prosciutto cotto di qualità e brie cremoso", allergens: ["L"], image: "/images/item-tramezzino-prosciutto.jpg" },
+      { name: "Speck, Taleggio e Zucchine", description: "Speck stagionato, taleggio fondente e zucchine grigliate", allergens: ["L"], image: "/images/item-tramezzino-speck.jpg" },
     ],
   },
 ];
@@ -186,6 +186,10 @@ export const WHY_CHOOSE_US = [
   {
     title: "Esperienza",
     description: "Solo ingredienti italiani d'eccellenza",
+    icon: "Heart",
+  },
+] as const;
+ription: "Solo ingredienti italiani d'eccellenza",
     icon: "Heart",
   },
 ] as const;
