@@ -56,7 +56,7 @@ export const MENU_CATEGORIES: MenuCategory[] = [
       { name: "Stick Gialla", description: "Bastoncini di patata gialla fritta in farina GF", allergens: ["GF"], image: "/images/item-fritti-stick.jpg" },
       { name: "Chips Multicolor", description: "Chips di patate colorate, leggere e croccanti", allergens: ["GF"], image: "/images/item-fritti-chips.jpg" },
       { name: "Fiammiferi Multicolor", description: "Julienne di patate, zucchine e carote in farina GF", allergens: ["GF"], image: "/images/item-fritti-fiammiferi.jpg" },
-      { name: "Twister", description: "Patata rossa o gialla arrotolata su spiedo", allergens: ["GF"] },
+      { name: "Twister", description: "Patata rossa o gialla arrotolata su spiedo", allergens: ["GF"], image: "/images/item-fritti-twister.jpg" },
     ],
   },
   {
@@ -76,8 +76,8 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     description: "Purè vellutato con patata, burro e parmigiano. La comfort food italiana nella sua essenza.",
     image: "/images/menu-puree.jpg",
     items: [
-      { name: "Polpette al Sugo", description: "Polpette di vitello con pomodoro pelato e scalogno", allergens: ["GF", "U", "L"], image: "/images/menu-puree.jpg" },
-      { name: "Polipo e Olive Nere", description: "Polipo, aglio, prezzemolo, vino bianco, olive e capperi", allergens: ["GF", "L", "M"] },
+      { name: "Polpette al Sugo", description: "Polpette di vitello con pomodoro pelato e scalogno", allergens: ["GF", "U", "L"], image: "/images/item-puree-polpette.jpg" },
+      { name: "Polipo e Olive Nere", description: "Polipo, aglio, prezzemolo, vino bianco, olive e capperi", allergens: ["GF", "L", "M"], image: "/images/item-puree-polipo-2.jpg" },
     ],
   },
   {
@@ -86,11 +86,11 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     description: "Gnocchi di patata in farina gluten free, soffici e leggeri, con sughi d'autore.",
     image: "/images/menu-gnocchi.jpg",
     items: [
-      { name: "4 Formaggi", description: "Parmigiano, gorgonzola, taleggio, scamorza", allergens: ["GF", "U", "L"], image: "/images/menu-gnocchi.jpg" },
-      { name: "Carbonara", description: "Pecorino, uovo, pepe nero, parmigiano e bacon", allergens: ["GF", "U", "L"] },
+      { name: "4 Formaggi", description: "Parmigiano, gorgonzola, taleggio, scamorza", allergens: ["GF", "U", "L"], image: "/images/item-gnocchi-4formaggi.jpg" },
+      { name: "Carbonara", description: "Pecorino, uovo, pepe nero, parmigiano e bacon", allergens: ["GF", "U", "L"], image: "/images/item-gnocchi-carbonara.jpg" },
       { name: "Sorrentina", description: "Pomodori pelati, scalogno, basilico, parmigiano", allergens: ["GF", "U", "L"], image: "/images/item-gnocchi-sorrentina.jpg" },
-      { name: "Funghi e Salsiccia", description: "Champignon, scalogno, salsiccia artigianale, vino rosso", allergens: ["GF", "U"] },
-      { name: "Gamberi e Zucchine", description: "Gamberi argentini al brandy, zucchine con basilico", allergens: ["GF", "U", "C"] },
+      { name: "Funghi e Salsiccia", description: "Champignon, scalogno, salsiccia artigianale, vino rosso", allergens: ["GF", "U"], image: "/images/item-gnocchi-funghi.jpg" },
+      { name: "Gamberi e Zucchine", description: "Gamberi argentini al brandy, zucchine con basilico", allergens: ["GF", "U", "C"], image: "/images/item-gnocchi-gamberi.jpg" },
     ],
   },
   {
@@ -111,8 +111,8 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     description: "Patata schiacciata e croccante come pane, farcita con ingredienti selezionati.",
     image: "/images/menu-schiacciata.jpg",
     items: [
-      { name: "Viola Funghi e Salsiccia", description: "Schiacciata di patata viola con funghi e salsiccia", allergens: [] },
-      { name: "Rossa Speck e Brie", description: "Schiacciata di patata rossa con speck e brie cremoso", allergens: ["L"], image: "/images/menu-schiacciata.jpg" },
+      { name: "Viola Funghi e Salsiccia", description: "Schiacciata di patata viola con funghi e salsiccia", allergens: [], image: "/images/item-schiacciata-funghi.jpg" },
+      { name: "Rossa Speck e Brie", description: "Schiacciata di patata rossa con speck e brie cremoso", allergens: ["L"], image: "/images/item-schiacciata-speck.jpg" },
     ],
   },
   {
