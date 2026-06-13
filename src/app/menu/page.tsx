@@ -1,11 +1,15 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
-import { MENU_CATEGORIES, ALLERGEN_LABELS, AllergenCode } from "@/lib/constants";
+import { MENU_CATEGORIES, ALLERGEN_LABELS, AllergenCode, MenuItem } from "@/lib/constants";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import { UtensilsCrossed, Award } from "lucide-react";
+import ItemModal from "@/components/ui/ItemModal";
+import { UtensilsCrossed, Award, Search } from "lucide-react";
 
 export default function MenuPage() {
+  const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
+
   return (
     <div className="bg-[#050505] min-h-screen text-white">
       {/* Hero */}
@@ -34,6 +38,9 @@ export default function MenuPage() {
             </h1>
             <p className="text-xl md:text-2xl text-white/60 max-w-3xl mx-auto font-light leading-relaxed uppercase tracking-[0.2em]">
               Un viaggio sensoriale attraverso creazioni d&apos;autore firmate dal nostro Executive Chef.
+            </p>
+            <p className="text-[10px] text-gold/60 mt-8 uppercase tracking-[0.4em] italic animate-pulse">
+              Clicca su un piatto per scoprirne la storia e gli ingredienti
             </p>
           </ScrollReveal>
         </div>
@@ -71,7 +78,10 @@ export default function MenuPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 items-start">
                 {category.items.map((item, j) => (
                   <ScrollReveal key={j} delay={j * 0.05} direction="up" className="h-full">
-                    <div className="group luxury-border bg-white/5 hover:bg-[#D4AF37]/5 transition-all duration-700 h-full flex flex-col overflow-hidden">
+                    <div 
+                      onClick={() => setSelectedItem(item)}
+                      className="group luxury-border bg-white/5 hover:bg-[#D4AF37]/5 transition-all duration-700 h-full flex flex-col overflow-hidden cursor-pointer relative"
+                    >
                       {item.image && (
                         <div className="relative aspect-[4/3] overflow-hidden">
                           <Image
@@ -81,6 +91,13 @@ export default function MenuPage() {
                             className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                          
+                          {/* Search Icon Hint on Hover */}
+                          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <div className="p-3 bg-[#D4AF37]/90 text-black rounded-full scale-50 group-hover:scale-100 transition-transform duration-500">
+                              <Search size={24} />
+                            </div>
+                          </div>
                         </div>
                       )}
                       <div className="p-10 flex flex-col flex-grow">
@@ -163,6 +180,12 @@ export default function MenuPage() {
           </p>
         </div>
       </section>
+
+      {/* Item Modal */}
+      <ItemModal 
+        item={selectedItem} 
+        onClose={() => setSelectedItem(null)} 
+      />
     </div>
   );
 }
