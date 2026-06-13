@@ -189,7 +189,3 @@ export const WHY_CHOOSE_US = [
     icon: "Heart",
   },
 ] as const;
-ription: "Solo ingredienti italiani d'eccellenza",
-    icon: "Heart",
-  },
-] as const;
