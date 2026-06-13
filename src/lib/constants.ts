@@ -34,6 +34,7 @@ export interface MenuItem {
   name: string;
   description: string;
   allergens: AllergenCode[];
+  image?: string;
 }
 
 export interface MenuCategory {
@@ -51,10 +52,10 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     description: "Croccantezze multicolor in farina gluten free. Dalla buccia ai fiammiferi arcobaleno.",
     image: "/images/menu-fritti.jpg",
     items: [
-      { name: "Buccia Multicolor", description: "Bucce di patate miste croccanti in farina GF", allergens: ["GF"] },
-      { name: "Stick Gialla", description: "Bastoncini di patata gialla fritta in farina GF", allergens: ["GF"] },
-      { name: "Chips Multicolor", description: "Chips di patate colorate, leggere e croccanti", allergens: ["GF"] },
-      { name: "Fiammiferi Multicolor", description: "Julienne di patate, zucchine e carote in farina GF", allergens: ["GF"] },
+      { name: "Buccia Multicolor", description: "Bucce di patate miste croccanti in farina GF", allergens: ["GF"], image: "/images/item-fritti-buccia.jpg" },
+      { name: "Stick Gialla", description: "Bastoncini di patata gialla fritta in farina GF", allergens: ["GF"], image: "/images/item-fritti-stick.jpg" },
+      { name: "Chips Multicolor", description: "Chips di patate colorate, leggere e croccanti", allergens: ["GF"], image: "/images/item-fritti-chips.jpg" },
+      { name: "Fiammiferi Multicolor", description: "Julienne di patate, zucchine e carote in farina GF", allergens: ["GF"], image: "/images/item-fritti-fiammiferi.jpg" },
       { name: "Twister", description: "Patata rossa o gialla arrotolata su spiedo", allergens: ["GF"] },
     ],
   },
@@ -64,8 +65,8 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     description: "Patate aromatizzate con olio EVO, aglio, rosmarino, salvia e timo.",
     image: "/images/menu-forno.jpg",
     items: [
-      { name: "Gialla al Rosmarino", description: "Olio EVO, aglio, rosmarino, salvia, timo", allergens: ["GF"] },
-      { name: "Rossa al Parmigiano e Speck", description: "Crema di parmigiano, burro, latte, noce moscata, speck", allergens: ["GF", "L"] },
+      { name: "Gialla al Rosmarino", description: "Olio EVO, aglio, rosmarino, salvia, timo", allergens: ["GF"], image: "/images/item-forno-rosmarino.jpg" },
+      { name: "Rossa al Parmigiano e Speck", description: "Crema di parmigiano, burro, latte, noce moscata, speck", allergens: ["GF", "L"], image: "/images/item-forno-speck.jpg" },
       { name: "Gialla Soffiate", description: "Patata gialla soffice al forno, aromatizzata", allergens: ["GF"] },
     ],
   },
@@ -75,7 +76,7 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     description: "Purè vellutato con patata, burro e parmigiano. La comfort food italiana nella sua essenza.",
     image: "/images/menu-puree.jpg",
     items: [
-      { name: "Polpette al Sugo", description: "Polpette di vitello con pomodoro pelato e scalogno", allergens: ["GF", "U", "L"] },
+      { name: "Polpette al Sugo", description: "Polpette di vitello con pomodoro pelato e scalogno", allergens: ["GF", "U", "L"], image: "/images/menu-puree.jpg" },
       { name: "Polipo e Olive Nere", description: "Polipo, aglio, prezzemolo, vino bianco, olive e capperi", allergens: ["GF", "L", "M"] },
     ],
   },
@@ -85,9 +86,9 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     description: "Gnocchi di patata in farina gluten free, soffici e leggeri, con sughi d'autore.",
     image: "/images/menu-gnocchi.jpg",
     items: [
-      { name: "4 Formaggi", description: "Parmigiano, gorgonzola, taleggio, scamorza", allergens: ["GF", "U", "L"] },
+      { name: "4 Formaggi", description: "Parmigiano, gorgonzola, taleggio, scamorza", allergens: ["GF", "U", "L"], image: "/images/menu-gnocchi.jpg" },
       { name: "Carbonara", description: "Pecorino, uovo, pepe nero, parmigiano e bacon", allergens: ["GF", "U", "L"] },
-      { name: "Sorrentina", description: "Pomodori pelati, scalogno, basilico, parmigiano", allergens: ["GF", "U", "L"] },
+      { name: "Sorrentina", description: "Pomodori pelati, scalogno, basilico, parmigiano", allergens: ["GF", "U", "L"], image: "/images/item-gnocchi-sorrentina.jpg" },
       { name: "Funghi e Salsiccia", description: "Champignon, scalogno, salsiccia artigianale, vino rosso", allergens: ["GF", "U"] },
       { name: "Gamberi e Zucchine", description: "Gamberi argentini al brandy, zucchine con basilico", allergens: ["GF", "U", "C"] },
     ],
@@ -98,10 +99,10 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     description: "Patata lessa a forma di barchetta, riempita con ingredienti freschi e creativi.",
     image: "/images/menu-barchetta.jpg",
     items: [
-      { name: "Viola Salmone", description: "Patata viola, salmone marinato agli agrumi, guacamole", allergens: ["P"] },
-      { name: "Viola Polipo", description: "Patata viola, polipo, olive taggiasche e capperi", allergens: ["M"] },
+      { name: "Viola Salmone", description: "Patata viola, salmone marinato agli agrumi, guacamole", allergens: ["P"], image: "/images/menu-barchetta.jpg" },
+      { name: "Viola Polipo", description: "Patata viola, polipo, olive taggiasche e capperi", allergens: ["M"], image: "/images/item-barchetta-polipo.jpg" },
       { name: "Rossa Funghi, Salsiccia e Taleggio", description: "Patata rossa con funghi, salsiccia e taleggio fondente", allergens: ["L"] },
-      { name: "Gialla Picanha e Chimichurri", description: "Patata gialla con picanha alle erbe e salsa chimichurri", allergens: [] },
+      { name: "Gialla Picanha e Chimichurri", description: "Patata gialla con picanha alle erbe e salsa chimichurri", allergens: [], image: "/images/item-barchetta-picanha.jpg" },
     ],
   },
   {
@@ -111,7 +112,7 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     image: "/images/menu-schiacciata.jpg",
     items: [
       { name: "Viola Funghi e Salsiccia", description: "Schiacciata di patata viola con funghi e salsiccia", allergens: [] },
-      { name: "Rossa Speck e Brie", description: "Schiacciata di patata rossa con speck e brie cremoso", allergens: ["L"] },
+      { name: "Rossa Speck e Brie", description: "Schiacciata di patata rossa con speck e brie cremoso", allergens: ["L"], image: "/images/menu-schiacciata.jpg" },
     ],
   },
   {
@@ -120,7 +121,7 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     description: "Waffle di patata croccante fuori, morbido dentro. Base per abbinamenti gourmet.",
     image: "/images/menu-waffle.jpg",
     items: [
-      { name: "Rossa Uovo e Avocado", description: "Waffle di patata rossa, uovo sodo, avocado e salsa all'erba cipollina", allergens: ["U", "L"] },
+      { name: "Rossa Uovo e Avocado", description: "Waffle di patata rossa, uovo sodo, avocado e salsa all'erba cipollina", allergens: ["U", "L"], image: "/images/menu-waffle.jpg" },
       { name: "Gialla Salmone e Burro Salato", description: "Waffle di patata gialla, salmone fresco marinato e burro salato", allergens: ["P", "L"] },
     ],
   },
@@ -130,9 +131,9 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     description: "Patate al vapore, leggere e digeribili. Abbinamenti freschi e mediterranei.",
     image: "/images/menu-vapore.jpg",
     items: [
-      { name: "Mediterranea", description: "Feta greca, San Marzano, cipolla di Tropea, olive taggiasche, fiori di cappero", allergens: ["L"] },
-      { name: "Polipo, Olive e Julienne", description: "Polipo con julienne di verdure, olive taggiasche, prezzemolo e limone", allergens: ["M"] },
-      { name: "Gamberi e Zucchine", description: "Gamberi argentini e zucchine con olio EVO e basilico", allergens: ["C"] },
+      { name: "Mediterranea", description: "Feta greca, San Marzano, cipolla di Tropea, olive taggiasche, fiori di cappero", allergens: ["L"], image: "/images/item-vapore-mediterranea.jpg" },
+      { name: "Polipo, Olive e Julienne", description: "Polipo con julienne di verdure, olive taggiasche, prezzemolo e limone", allergens: ["M"], image: "/images/menu-vapore.jpg" },
+      { name: "Gamberi e Zucchine", description: "Gamberi argentini e zucchine con olio EVO e basilico", allergens: ["C"], image: "/images/item-vapore-gamberi.jpg" },
       { name: "Uovo, Avocado e Salmone", description: "Uovo sodo, avocado fresco e salmone marinato", allergens: ["U", "P"] },
     ],
   },
@@ -143,8 +144,8 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     image: "/images/menu-jacket.jpg",
     items: [
       { name: "Carbonara", description: "Pecorino romano, uovo, pepe nero, parmigiano e bacon croccante", allergens: ["U", "L"] },
-      { name: "Speck e Brie", description: "Speck croccante e brie fondente", allergens: ["L"] },
-      { name: "Salsiccia, Porcini e Gorgonzola", description: "Salsiccia artigianale, funghi porcini e gorgonzola DOP", allergens: ["L"] },
+      { name: "Speck e Brie", description: "Speck croccante e brie fondente", allergens: ["L"], image: "/images/item-jacket-formaggio.jpg" },
+      { name: "Salsiccia, Porcini e Gorgonzola", description: "Salsiccia artigianale, funghi porcini e gorgonzola DOP", allergens: ["L"], image: "/images/menu-jacket.jpg" },
     ],
   },
   {
@@ -154,7 +155,7 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     image: "/images/menu-tramezzino.jpg",
     items: [
       { name: "Prosciutto Cotto e Brie", description: "Prosciutto cotto di qualità e brie cremoso", allergens: ["L"] },
-      { name: "Speck, Taleggio e Zucchine", description: "Speck stagionato, taleggio fondente e zucchine grigliate", allergens: ["L"] },
+      { name: "Speck, Taleggio e Zucchine", description: "Speck stagionato, taleggio fondente e zucchine grigliate", allergens: ["L"], image: "/images/menu-tramezzino.jpg" },
     ],
   },
 ];

@@ -68,29 +68,42 @@ export default function MenuPage() {
                 </div>
               </ScrollReveal>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 items-start">
                 {category.items.map((item, j) => (
                   <ScrollReveal key={j} delay={j * 0.05} direction="up" className="h-full">
-                    <div className="group luxury-border bg-white/5 p-10 hover:bg-[#D4AF37]/5 transition-all duration-700 h-full flex flex-col">
-                      <h3 className="text-xl font-serif font-bold text-white uppercase tracking-widest group-hover:text-[#D4AF37] transition-colors duration-700 mb-4">
-                        {item.name}
-                      </h3>
-                      <p className="text-white/50 text-[10px] font-light leading-loose uppercase tracking-[0.3em] flex-grow">
-                        {item.description}
-                      </p>
-                      {item.allergens.length > 0 && (
-                        <div className="flex flex-wrap gap-2 mt-6">
-                          {item.allergens.map((code) => (
-                            <span
-                              key={code}
-                              title={ALLERGEN_LABELS[code]}
-                              className="text-[8px] font-bold uppercase tracking-widest border border-[#D4AF37]/30 text-[#D4AF37]/60 px-2 py-1"
-                            >
-                              {code}
-                            </span>
-                          ))}
+                    <div className="group luxury-border bg-white/5 hover:bg-[#D4AF37]/5 transition-all duration-700 h-full flex flex-col overflow-hidden">
+                      {item.image && (
+                        <div className="relative aspect-[4/3] overflow-hidden">
+                          <Image
+                            src={item.image}
+                            alt={item.name}
+                            fill
+                            className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                         </div>
                       )}
+                      <div className="p-10 flex flex-col flex-grow">
+                        <h3 className="text-xl font-serif font-bold text-white uppercase tracking-widest group-hover:text-[#D4AF37] transition-colors duration-700 mb-4">
+                          {item.name}
+                        </h3>
+                        <p className="text-white/50 text-[10px] font-light leading-loose uppercase tracking-[0.3em] flex-grow">
+                          {item.description}
+                        </p>
+                        {item.allergens.length > 0 && (
+                          <div className="flex flex-wrap gap-2 mt-6">
+                            {item.allergens.map((code) => (
+                              <span
+                                key={code}
+                                title={ALLERGEN_LABELS[code]}
+                                className="text-[8px] font-bold uppercase tracking-widest border border-[#D4AF37]/30 text-[#D4AF37]/60 px-2 py-1"
+                              >
+                                {code}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </ScrollReveal>
                 ))}
