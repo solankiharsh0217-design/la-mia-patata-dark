@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { MENU_CATEGORIES, ALLERGEN_LABELS, AllergenCode, MenuItem } from "@/lib/constants";
+import { MENU_CATEGORIES, ALLERGEN_LABELS, AllergenCode, MenuItem, CHEF } from "@/lib/constants";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import ItemModal from "@/components/ui/ItemModal";
-import { UtensilsCrossed, Award, Search } from "lucide-react";
+import { UtensilsCrossed, Award, Search, Instagram, ExternalLink } from "lucide-react";
 
 export default function MenuPage() {
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
@@ -37,7 +37,7 @@ export default function MenuPage() {
               The <span className="text-gold italic">Collection</span>.
             </h1>
             <p className="text-xl md:text-2xl text-white/60 max-w-3xl mx-auto font-light leading-relaxed uppercase tracking-[0.2em]">
-              Un viaggio sensoriale attraverso creazioni d&apos;autore firmate dal nostro Executive Chef.
+              Un viaggio sensoriale attraverso creazioni d&apos;autore firmate dal nostro Corporate Chef.
             </p>
             <p className="text-[10px] text-gold/60 mt-8 uppercase tracking-[0.4em] italic animate-pulse">
               Clicca su un piatto per scoprirne la storia e gli ingredienti
@@ -130,12 +130,48 @@ export default function MenuPage() {
         </div>
       </section>
 
+      {/* Corporate Chef Section */}
+      <section className="py-32 px-6 bg-[#080808] border-y border-white/5 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5">
+          <Image src="/logo-bg.webp" alt="" fill className="object-cover" />
+        </div>
+        <div className="max-w-5xl mx-auto relative z-10">
+          <ScrollReveal direction="up">
+            <div className="text-center mb-16">
+              <p className="text-[#D4AF37] text-[10px] font-bold uppercase tracking-[0.5em] mb-6">
+                {CHEF.title}
+              </p>
+              <h2 className="text-5xl md:text-7xl font-serif font-bold text-white uppercase tracking-widest">
+                {CHEF.name.split(" ").map((w, i) => (
+                  <span key={i}>{w} </span>
+                ))}
+              </h2>
+            </div>
+            <div className="max-w-3xl mx-auto text-center">
+              <p className="text-lg md:text-xl text-white/60 font-light leading-relaxed uppercase tracking-[0.08em]">
+                {CHEF.bio}
+              </p>
+              <a 
+                href={CHEF.instagram} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 mt-10 text-[#D4AF37] hover:scale-105 transition-transform duration-300"
+              >
+                <Instagram size={20} strokeWidth={1.5} />
+                <span className="text-[10px] font-bold uppercase tracking-[0.3em]">@maiullo_stefano_chef</span>
+                <ExternalLink size={14} strokeWidth={1.5} className="opacity-60" />
+              </a>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* Signature Banner */}
       <section className="py-32 bg-black border-y border-[#D4AF37]/20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <Image
-            src="/images/menu-jacket.jpg"
-            alt="Signature"
+            src="/images/menu-barchetta.jpg"
+            alt="Barchetta Signature"
             fill
             className="object-cover"
           />

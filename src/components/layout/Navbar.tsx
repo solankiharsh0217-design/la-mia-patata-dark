@@ -11,6 +11,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/menu", label: "Menu" },
   { href: "/about", label: "Chi Siamo" },
+  { href: "/servizi-business", label: "Servizi Business" },
   { href: "/contact", label: "Contatti" },
 ];
 
@@ -38,7 +39,7 @@ export default function Navbar() {
         <LinkNext href="/" className="group flex items-center gap-4">
           <div className="relative w-12 h-12 md:w-16 md:h-16 luxury-border overflow-hidden rounded-full bg-black">
             <Image 
-              src="/images/logo.jpg" 
+              src="/logo-la-mia.png" 
               alt="La Mia Patata Logo" 
               fill 
               className="object-cover group-hover:scale-110 transition-transform duration-500"
@@ -49,7 +50,7 @@ export default function Navbar() {
               La Mia <span className="text-[#D4AF37]">Patata</span>
             </span>
             <span className="text-[9px] uppercase tracking-[0.3em] text-[#D4AF37] font-bold mt-1 opacity-80">
-              Gastronomia di Lusso
+              Gastronomia Pop-Art
             </span>
           </div>
         </LinkNext>

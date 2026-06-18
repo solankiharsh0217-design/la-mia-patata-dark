@@ -20,7 +20,7 @@ export default function Footer() {
             <Link href="/" className="inline-flex items-center gap-4 mb-10 group">
               <div className="relative w-16 h-16 luxury-border overflow-hidden rounded-full bg-black">
                 <Image 
-                  src="/images/logo.jpg" 
+                  src="/logo-la-mia.png" 
                   alt="La Mia Patata Logo" 
                   fill 
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
@@ -50,10 +50,10 @@ export default function Footer() {
           <div className="md:col-span-2 md:col-start-7">
             <h4 className="text-[11px] font-bold uppercase tracking-[0.4em] text-[#D4AF37] mb-10">Navigazione</h4>
             <ul className="space-y-6">
-              {["Home", "Menu", "Chi Siamo", "Contatti"].map((item) => (
+              {["Home", "Menu", "Chi Siamo", "Servizi Business", "Contatti"].map((item) => (
                 <li key={item}>
                   <Link 
-                    href={item === "Home" ? "/" : item === "Chi Siamo" ? "/about" : `/${item.toLowerCase()}`} 
+                    href={item === "Home" ? "/" : item === "Chi Siamo" ? "/about" : item === "Servizi Business" ? "/servizi-business" : `/${item.toLowerCase()}`} 
                     className="text-white/60 hover:text-[#D4AF37] transition-all flex items-center gap-3 group text-[11px] uppercase tracking-[0.2em]"
                   >
                     <span className="w-0 h-px bg-[#D4AF37] group-hover:w-4 transition-all duration-500" />

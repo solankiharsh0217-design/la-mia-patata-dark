@@ -106,8 +106,11 @@ export default function AboutPage() {
       </section>
 
       {/* Values Grid */}
-      <section className="section-padding bg-[#080808] border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="section-padding bg-[#080808] border-t border-white/5 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5">
+          <Image src="/logo-bg.webp" alt="" fill className="object-cover" />
+        </div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-24">
              <h2 className="text-5xl md:text-8xl font-serif font-bold text-white tracking-tighter uppercase">The <span className="text-gold italic">Principles</span></h2>
           </div>

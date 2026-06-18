@@ -7,7 +7,7 @@ export const SITE = {
   email: "info@lamiapatata.it",
   emailLink: "mailto:info@lamiapatata.it",
   whatsapp: "https://wa.me/390000000000",
-  address: "Viale Dante / Via Ceccarini, Riccione (RN)",
+  address: "Piazzale Ceccarini 6, Riccione (RN)",
   mapsUrl: "https://maps.google.com/?q=44.0063,12.6566",
   hours: "12:00 - 24:00",
   hoursDetailed: "Lunedì - Domenica: 12:00 - 24:00",
@@ -203,7 +203,7 @@ export const MENU_CATEGORIES: MenuCategory[] = [
   {
     id: "barchetta",
     name: "Barchetta",
-    description: "Patata lessa a forma di barchetta, riempita con ingredienti freschi e creativi.",
+    description: "Patata lessa a forma di barchetta, riempita con ingredienti freschi e creativi. Il piatto signature.",
     image: "/images/menu-barchetta.jpg",
     items: [
       {
@@ -331,7 +331,7 @@ export const MENU_CATEGORIES: MenuCategory[] = [
   {
     id: "jacket",
     name: "Jacket",
-    description: "La patata intera al forno, aperta e ripiena generosamente. Il piatto signature.",
+    description: "La patata intera al forno, aperta e ripiena generosamente.",
     image: "/images/menu-jacket.jpg",
     items: [
       {
@@ -391,6 +391,36 @@ export const STATS = [
   { value: "12H", label: "Orario" },
   { value: "100%", label: "Passione" },
   { value: "A+", label: "Qualità" },
+] as const;
+
+export const CHEF = {
+  name: "Stefano Maiullo",
+  title: "Corporate Chef",
+  bio: "Con una carriera che attraversa Miami, Parigi, Zurich, Londra e l'Arabia Saudita, Stefano Maiullo porta a La Mia Patata un'esperienza internazionale di eccezione. Ha collaborato con il pluripremiato chef Norbert Niederkofler (3 stelle Michelin) ed è stato selezionato per il progetto NEOM in Arabia Saudita. Ospite di X-Factor e Italia's Got Talent, il Chef Maiullo è un personaggio eclettico che ha servito piatti a personaggi di fama mondiale, incluse le famiglie reali del Medio Oriente.",
+  instagram: "https://instagram.com/maiullo_stefano_chef",
+} as const;
+
+export const BUSINESS_SERVICES = [
+  {
+    title: "Catering Privato",
+    description: "Servizi di catering d'elite per eventi privati, cerimonie e ricevimenti. Menu personalizzati con la stessa qualità della nostra gastronomia.",
+    icon: "UtensilsCrossed",
+  },
+  {
+    title: "Hotel & Resort",
+    description: "Collaborazioni con hotel e resort per servizi di ristorazione, menu della carta e buffet esclusivi. Soluzioni su misura per ogni struttura.",
+    icon: "Building2",
+  },
+  {
+    title: "Eventi Aziendali",
+    description: "Catering per eventi corporate, meeting, conferenze e team building. Presentazioni impeccabili e menu raffinati per impressionare i vostri ospiti.",
+    icon: "Briefcase",
+  },
+  {
+    title: "Feste & Celebrazioni",
+    description: "Per matrimoni, compleanni e ogni tipo di festa. Creiamo esperienze culinarie uniche che i vostri ospiti non dimenticheranno.",
+    icon: "PartyPopper",
+  },
 ] as const;
 
 export const WHY_CHOOSE_US = [
