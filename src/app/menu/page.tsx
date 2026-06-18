@@ -135,32 +135,46 @@ export default function MenuPage() {
         <div className="absolute inset-0 opacity-5">
           <Image src="/logo-bg.webp" alt="" fill className="object-cover" />
         </div>
-        <div className="max-w-5xl mx-auto relative z-10">
+        <div className="max-w-7xl mx-auto relative z-10">
           <ScrollReveal direction="up">
-            <div className="text-center mb-16">
-              <p className="text-[#D4AF37] text-[10px] font-bold uppercase tracking-[0.5em] mb-6">
-                {CHEF.title}
-              </p>
-              <h2 className="text-5xl md:text-7xl font-serif font-bold text-white uppercase tracking-widest">
-                {CHEF.name.split(" ").map((w, i) => (
-                  <span key={i}>{w} </span>
-                ))}
-              </h2>
-            </div>
-            <div className="max-w-3xl mx-auto text-center">
-              <p className="text-lg md:text-xl text-white/60 font-light leading-relaxed uppercase tracking-[0.08em]">
-                {CHEF.bio}
-              </p>
-              <a 
-                href={CHEF.instagram} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 mt-10 text-[#D4AF37] hover:scale-105 transition-transform duration-300"
-              >
-                <Instagram size={20} strokeWidth={1.5} />
-                <span className="text-[10px] font-bold uppercase tracking-[0.3em]">@maiullo_stefano_chef</span>
-                <ExternalLink size={14} strokeWidth={1.5} className="opacity-60" />
-              </a>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+              <div className="relative group">
+                <div className="absolute -inset-4 border border-[#D4AF37]/20 translate-x-6 translate-y-6 -z-10" />
+                <div className="relative aspect-[3/4] luxury-border overflow-hidden bg-black">
+                  <Image
+                    src={CHEF.image}
+                    alt={CHEF.name}
+                    fill
+                    className="object-cover opacity-90 transition-transform duration-[2s] group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-40" />
+                </div>
+              </div>
+              <div className="space-y-8">
+                <div>
+                  <p className="text-[#D4AF37] text-[10px] font-bold uppercase tracking-[0.5em] mb-4">
+                    {CHEF.title}
+                  </p>
+                  <h2 className="text-5xl md:text-6xl font-serif font-bold text-white uppercase tracking-widest leading-tight">
+                    {CHEF.name.split(" ").map((w, i) => (
+                      <span key={i}>{w} </span>
+                    ))}
+                  </h2>
+                </div>
+                <p className="text-lg text-white/60 font-light leading-relaxed uppercase tracking-[0.08em]">
+                  {CHEF.bio}
+                </p>
+                <a 
+                  href={CHEF.instagram} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 text-[#D4AF37] hover:scale-105 transition-transform duration-300"
+                >
+                  <Instagram size={20} strokeWidth={1.5} />
+                  <span className="text-[10px] font-bold uppercase tracking-[0.3em]">@maiullo_stefano_chef</span>
+                  <ExternalLink size={14} strokeWidth={1.5} className="opacity-60" />
+                </a>
+              </div>
             </div>
           </ScrollReveal>
         </div>

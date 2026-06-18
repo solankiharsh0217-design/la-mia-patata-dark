@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import { BUSINESS_SERVICES, SITE } from "@/lib/constants";
+import { BUSINESS_SERVICES, SITE, CHEF } from "@/lib/constants";
 import { AnimatePresence, motion } from "framer-motion";
 import { Send, Check, MapPin, Phone, Mail, UtensilsCrossed, Building2, Briefcase, PartyPopper } from "lucide-react";
 
@@ -81,17 +81,34 @@ export default function ServiziBusinessPage() {
         <div className="absolute inset-0 opacity-5">
           <Image src="/logo-bg.webp" alt="" fill className="object-cover" />
         </div>
-        <div className="max-w-5xl mx-auto text-center relative z-10">
+        <div className="max-w-7xl mx-auto relative z-10">
           <ScrollReveal direction="up">
-            <p className="text-[#D4AF37] text-[10px] font-bold uppercase tracking-[0.5em] mb-8">
-              A Message from Our Corporate Chef
-            </p>
-            <blockquote className="text-2xl md:text-4xl font-serif italic text-white/70 leading-relaxed max-w-4xl mx-auto mb-10">
-              &ldquo;Ogni evento è un&apos;opportunità per creare qualcosa di straordinario. Portiamo la passione e la qualità di La Mia Patata direttamente nella vostra location.&rdquo;
-            </blockquote>
-            <p className="text-[#D4AF37] text-[11px] font-bold uppercase tracking-[0.3em]">
-              — Stefano Maiullo, Corporate Chef
-            </p>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+              <div className="relative group order-2 lg:order-1">
+                <div className="absolute -inset-4 border border-[#D4AF37]/20 translate-x-6 translate-y-6 -z-10" />
+                <div className="relative aspect-[3/4] luxury-border overflow-hidden bg-black">
+                  <Image
+                    src={CHEF.image}
+                    alt={CHEF.name}
+                    fill
+                    className="object-cover opacity-90 transition-transform duration-[2s] group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-40" />
+                </div>
+              </div>
+              <div className="space-y-8 order-1 lg:order-2">
+                <p className="text-[#D4AF37] text-[10px] font-bold uppercase tracking-[0.5em]">
+                  A Message from Our Corporate Chef
+                </p>
+                <blockquote className="text-2xl md:text-3xl font-serif italic text-white/70 leading-relaxed">
+                  &ldquo;Ogni evento è un&apos;opportunità per creare qualcosa di straordinario. Portiamo la passione e la qualità di La Mia Patata direttamente nella vostra location.&rdquo;
+                </blockquote>
+                <div>
+                  <p className="text-white font-serif font-bold text-xl uppercase tracking-widest">{CHEF.name}</p>
+                  <p className="text-[#D4AF37] text-[10px] font-bold uppercase tracking-[0.3em] mt-1">{CHEF.title}</p>
+                </div>
+              </div>
+            </div>
           </ScrollReveal>
         </div>
       </section>

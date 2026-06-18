@@ -396,7 +396,8 @@ export const STATS = [
 export const CHEF = {
   name: "Stefano Maiullo",
   title: "Corporate Chef",
-  bio: "Con una carriera che attraversa Miami, Parigi, Zurich, Londra e l'Arabia Saudita, Stefano Maiullo porta a La Mia Patata un'esperienza internazionale di eccezione. Ha collaborato con il pluripremiato chef Norbert Niederkofler (3 stelle Michelin) ed è stato selezionato per il progetto NEOM in Arabia Saudita. Ospite di X-Factor e Italia's Got Talent, il Chef Maiullo è un personaggio eclettico che ha servito piatti a personaggi di fama mondiale, incluse le famiglie reali del Medio Oriente.",
+  image: "/chef.jpg",
+  bio: "Per tutti è lo chef dei Vip. Stefano Maiullo, cuoco di fama internazionale, è stato selezionato per contribuire alla nascita del progetto NEOM in Arabia Saudita. Ha lavorato a stretto contatto con il pluripremiato chef 3 stelle Michelin Norbert Niederkofler. Con una carriera che attraversa Miami, Parigi, Zurich, Londra e l'Arabia Saudita, il Chef Maiullo ha avuto l'onore di far assaggiare i suoi piatti a personaggi di un certo livello, inclusi i membri della famiglia reale saudita. Ospite di X-Factor e Italia's Got Talent, è un personaggio eclettico che porta a La Mia Patata un'esperienza unica.",
   instagram: "https://instagram.com/maiullo_stefano_chef",
 } as const;
 
