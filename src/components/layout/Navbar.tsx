@@ -39,7 +39,7 @@ export default function Navbar() {
         <LinkNext href="/" className="group flex items-center gap-4">
           <div className="relative w-12 h-12 md:w-16 md:h-16 luxury-border overflow-hidden rounded-full bg-black">
             <Image 
-              src="/logo-la-mia.png" 
+              src="/newlogo.png" 
               alt="La Mia Patata Logo" 
               fill 
               className="object-cover group-hover:scale-110 transition-transform duration-500"

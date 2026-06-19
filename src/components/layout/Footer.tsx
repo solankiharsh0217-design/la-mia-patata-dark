@@ -20,7 +20,7 @@ export default function Footer() {
             <Link href="/" className="inline-flex items-center gap-4 mb-10 group">
               <div className="relative w-16 h-16 luxury-border overflow-hidden rounded-full bg-black">
                 <Image 
-                  src="/logo-la-mia.png" 
+                  src="/newlogo.png" 
                   alt="La Mia Patata Logo" 
                   fill 
                   className="object-cover group-hover:scale-110 transition-transform duration-500"

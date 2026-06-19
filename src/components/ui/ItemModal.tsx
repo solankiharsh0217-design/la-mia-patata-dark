@@ -64,7 +64,7 @@ export default function ItemModal({ item, onClose }: ItemModalProps) {
             {/* Image Section */}
             <div className="relative h-64 md:h-80 w-full">
               <Image
-                src={item.image || "/images/logo.jpg"}
+                src={item.image || "/newlogo.png"}
                 alt={item.name}
                 fill
                 className="object-cover"
