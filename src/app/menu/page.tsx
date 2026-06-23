@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { MENU_CATEGORIES, ALLERGEN_LABELS, AllergenCode, MenuItem, CHEF } from "@/lib/constants";
+import { MENU_CATEGORIES, ALLERGEN_LABELS, AllergenCode, MenuItem, CHEF, SAUCES } from "@/lib/constants";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import ItemModal from "@/components/ui/ItemModal";
 import { UtensilsCrossed, Award, Search, Instagram, ExternalLink } from "lucide-react";
@@ -101,9 +101,16 @@ export default function MenuPage() {
                         </div>
                       )}
                       <div className="p-10 flex flex-col flex-grow">
-                        <h3 className="text-xl font-serif font-bold text-white uppercase tracking-widest group-hover:text-[#D4AF37] transition-colors duration-700 mb-4">
-                          {item.name}
-                        </h3>
+                        <div className="flex items-start justify-between gap-4 mb-4">
+                          <h3 className="text-xl font-serif font-bold text-white uppercase tracking-widest group-hover:text-[#D4AF37] transition-colors duration-700">
+                            {item.name}
+                          </h3>
+                          {item.price && (
+                            <span className="text-[#D4AF37] font-serif font-bold text-lg whitespace-nowrap">
+                              €{item.price}
+                            </span>
+                          )}
+                        </div>
                         <p className="text-white/50 text-[10px] font-light leading-loose uppercase tracking-[0.3em] flex-grow">
                           {item.description}
                         </p>
@@ -180,31 +187,39 @@ export default function MenuPage() {
         </div>
       </section>
 
-      {/* Signature Banner */}
+      {/* Signature Banner - Sauces */}
       <section className="py-32 bg-black border-y border-[#D4AF37]/20 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <Image
-            src="/images/menu-barchetta.jpg"
-            alt="Barchetta Signature"
-            fill
-            className="object-cover"
-          />
+        <div className="absolute inset-0 opacity-5">
+          <Image src="/logo-bg.webp" alt="" fill className="object-cover" />
         </div>
         <div className="absolute inset-0 bg-black/80" />
-        <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
+        <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
           <ScrollReveal direction="up">
             <UtensilsCrossed className="text-[#D4AF37] mx-auto mb-10" size={64} strokeWidth={1} />
             <h2 className="text-4xl md:text-7xl font-serif font-bold mb-8 uppercase tracking-widest leading-tight">
-              Curate Your <span className="text-gold italic">Experience</span>
+              Le Nostre <span className="text-gold italic">Salse</span>
             </h2>
             <p className="text-white/60 max-w-2xl mx-auto text-sm mb-16 font-light uppercase tracking-[0.4em] leading-loose">
-              Personalizza la tua base con la nostra selezione di sughi d&apos;autore preparati giornalmente.
+              Salse artigianali preparate giornalmente per accompagnare ogni piatto.
             </p>
-            <div className="flex flex-wrap justify-center gap-8">
-              {["Carbonara", "Ragù", "4 Formaggi", "Cacio e Pepe", "Pesto", "Amatriciana", "Gorgonzola"].map((sugho, i) => (
-                <span key={i} className="px-8 py-3 border border-[#D4AF37]/20 text-[#D4AF37] text-[10px] font-bold uppercase tracking-[0.5em] hover:bg-[#D4AF37] hover:text-black transition-all duration-500 cursor-default">
-                  {sugho}
-                </span>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+              {SAUCES.map((salsa, i) => (
+                <ScrollReveal key={i} delay={i * 0.05} direction="up">
+                  <div className="group relative aspect-square overflow-hidden luxury-border cursor-default">
+                    <Image
+                      src={salsa.image}
+                      alt={salsa.name}
+                      fill
+                      className="object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
+                    />
+                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-700" />
+                    <div className="absolute inset-0 flex items-end p-4">
+                      <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/80 group-hover:text-[#D4AF37] transition-colors duration-500">
+                        {salsa.name}
+                      </span>
+                    </div>
+                  </div>
+                </ScrollReveal>
               ))}
             </div>
           </ScrollReveal>

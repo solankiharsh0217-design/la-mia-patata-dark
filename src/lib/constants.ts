@@ -37,6 +37,7 @@ export interface MenuItem {
   ingredients?: string[];
   allergens: AllergenCode[];
   image?: string;
+  price?: number;
 }
 
 export interface MenuCategory {
@@ -46,6 +47,17 @@ export interface MenuCategory {
   image: string;
   items: MenuItem[];
 }
+
+export const SAUCES = [
+  { name: "Yogurt Erba Cipollina", image: "/menu-items/SALSA YOGURT ERBA CIPOLLINA.jpg" },
+  { name: "Senape", image: "/menu-items/SALSA SENAPE.jpg" },
+  { name: "Segreta della Patata", image: "/menu-items/SALSA SEGRETA PATATA.jpg" },
+  { name: "Maionese al Basilico", image: "/menu-items/SALSA MAIONESE BASILICO.jpg" },
+  { name: "Ketchup", image: "/menu-items/SALSA KETCHUP.jpg" },
+  { name: "Chimichurri", image: "/menu-items/SALSA CHIMICHURRI.jpg" },
+  { name: "Caesar", image: "/menu-items/SALSA CEASER.jpg" },
+  { name: "Spinaci", image: "/menu-items/SALSA SPINACI.jpg" },
+] as const;
 
 export const MENU_CATEGORIES: MenuCategory[] = [
   {
@@ -57,42 +69,47 @@ export const MENU_CATEGORIES: MenuCategory[] = [
       {
         name: "Buccia Multicolor",
         description: "Bucce di patate miste croccanti in farina GF",
-        longDescription: "Sottili e croccanti bucce di patate gialle, rosse e viola, fritte alla perfezione. Uno snack leggero e saporito che valorizza ogni parte del tubero, offrendo una consistenza unica e un gusto rustico.",
-        ingredients: ["Patate gialle", "Patate rosse", "Patate viola", "Farina di riso (GF)", "Olio di semi di girasole alto oleico", "Sale marino"],
+        longDescription: "Sottili e croccanti bucce di patate gialle, rosse e viola, fritte alla perfezione.",
+        ingredients: ["Patate gialle", "Patate rosse", "Patate viola", "Farina di riso (GF)", "Olio di semi di girasole", "Sale marino"],
         allergens: ["GF"],
-        image: "/images/item-fritti-buccia.jpg"
+        image: "/menu-items/BUCCIA MULTICOLOR.jpg",
+        price: 7,
       },
       {
         name: "Stick Gialla",
         description: "Bastoncini di patata gialla fritta in farina GF",
-        longDescription: "Il classico intramontabile: bastoncini di patata a pasta gialla selezionata, croccanti fuori e morbidi dentro. Preparati con una panatura leggera di farina senza glutine per una doratura perfetta e una digeribilità superiore.",
+        longDescription: "Il classico intramontabile: bastoncini di patata a pasta gialla, croccanti fuori e morbidi dentro.",
         ingredients: ["Patate a pasta gialla", "Farina di riso (GF)", "Olio di semi di girasole", "Sale fino"],
         allergens: ["GF"],
-        image: "/images/item-fritti-stick.jpg"
+        image: "/menu-items/STICK GIALLA.jpg",
+        price: 7,
       },
       {
-        name: "Chips Multicolor",
-        description: "Chips di patate colorate, leggere e croccanti",
-        longDescription: "Chips artigianali tagliate sottilissime a mano, realizzate con un mix equilibrato di patate gialle, rosse e viola. La loro croccantezza cristallina esalta i diversi sapori naturali delle varietà di patata utilizzate.",
-        ingredients: ["Patate gialle", "Patate rosse", "Patate viola", "Olio di semi di girasole", "Sale marino"],
+        name: "Chips",
+        description: "Chips di patate gialle e viola, leggere e croccanti",
+        longDescription: "Chips artigianali tagliate sottilissime a mano, realizzate con un mix di patate gialle e viola.",
+        ingredients: ["Patate gialle", "Patate viola", "Olio di semi di girasole", "Sale marino"],
         allergens: ["GF"],
-        image: "/images/item-fritti-chips.jpg"
+        image: "/menu-items/CHIPS GIALLE E VIOLA.png",
+        price: 7,
       },
       {
-        name: "Fiammiferi Multicolor",
+        name: "Fiammiferi",
         description: "Julienne di patate, zucchine e carote in farina GF",
-        longDescription: "Una julienne vivace e colorata di patate, zucchine e carote fresche. La panatura leggera gluten-free avvolge ogni 'fiammifero', creando un mix croccante che esalta la dolcezza naturale delle verdure.",
+        longDescription: "Una julienne vivace e colorata di patate, zucchine e carote fresche, croccanti in farina gluten-free.",
         ingredients: ["Patate", "Zucchine fresche", "Carote", "Farina di riso (GF)", "Olio di semi di girasole", "Sale"],
         allergens: ["GF"],
-        image: "/images/item-fritti-fiammiferi.jpg"
+        image: "/menu-items/FIAMMIFERI_.jpg",
+        price: 7,
       },
       {
-        name: "Twister",
-        description: "Patata rossa o gialla arrotolata su spiedo",
-        longDescription: "Una scenografica spirale di patata intera (varietà rossa o gialla) sapientemente tagliata su uno spiedo e fritta intera. Il risultato è una consistenza sorprendente: croccante lungo i bordi e tenera al cuore.",
-        ingredients: ["Patata intera selezionata", "Olio di semi di girasole", "Sale marino", "Mix di spezie mediterranee (opzionale)"],
+        name: "Croquettone",
+        description: "Croccante croquetta di patata ripiena",
+        longDescription: "Una generosa croquetta di patata, croccante esternamente e soffice all'interno, ripiena con ingredienti selezionati.",
+        ingredients: ["Patate", "Farina di riso (GF)", "Olio di semi di girasole", "Sale"],
         allergens: ["GF"],
-        image: "/images/item-fritti-twister.jpg"
+        image: "/menu-items/CROQUETTONE.jpg",
+        price: 10,
       },
     ],
   },
@@ -105,26 +122,29 @@ export const MENU_CATEGORIES: MenuCategory[] = [
       {
         name: "Gialla al Rosmarino",
         description: "Olio EVO, aglio, rosmarino, salvia, timo",
-        longDescription: "Cubetti di patata gialla cotti lentamente al forno fino a ottenere una crosticina dorata. L'aromatizzazione classica con olio extravergine di oliva e un trito fresco di erbe mediterranee regala un profumo e un sapore di casa.",
+        longDescription: "Cubetti di patata gialla cotti lentamente al forno con olio extravergine di oliva e erbe mediterranee fresche.",
         ingredients: ["Patate a pasta gialla", "Olio EVO", "Aglio in camicia", "Rosmarino fresco", "Salvia", "Timo", "Sale e pepe"],
         allergens: ["GF"],
-        image: "/images/item-forno-rosmarino.jpg"
+        image: "/menu-items/GIALLA ROSMARINO.jpg",
+        price: 9,
       },
       {
         name: "Rossa al Parmigiano e Speck",
         description: "Crema di parmigiano, burro, latte, noce moscata, speck",
-        longDescription: "Una ricetta ricca e avvolgente: patate rosse al forno condite con una vellutata crema al Parmigiano Reggiano. Il tocco finale di speck croccante aggiunge una nota sapida e affumicata che equilibra la dolcezza della crema.",
+        longDescription: "Patate rosse al forno condite con una vellutata crema al Parmigiano Reggiano e speck croccante.",
         ingredients: ["Patate rosse", "Parmigiano Reggiano DOP", "Speck dell'Alto Adige", "Latte intero", "Burro", "Noce moscata", "Sale"],
         allergens: ["GF", "L"],
-        image: "/images/item-forno-speck.jpg"
+        image: "/menu-items/ROSSA PARMIGIANO SPECK.jpg",
+        price: 11,
       },
       {
-        name: "Gialla Soffiate",
-        description: "Patata gialla soffice al forno, aromatizzata",
-        longDescription: "Patate gialle lavorate per ottenere una consistenza interna soffice come una nuvola, mantenendo una superficie esterna delicatamente croccante. Un contorno elegante e leggero, ideale per apprezzare la purezza dell'ingrediente.",
-        ingredients: ["Patate gialle", "Olio EVO", "Aromi naturali", "Sale marino"],
+        name: "Gialla Novella",
+        description: "Patata gialla novella al forno, leggera e saporita",
+        longDescription: "Patate gialle novelle cotte al forno, leggere e digeribili, esaltate da un semplice condimento di olio EVO e sale marino.",
+        ingredients: ["Patate gialle novelle", "Olio EVO", "Sale marino"],
         allergens: ["GF"],
-        image: "/images/item-forno-soffiate.jpg"
+        image: "/menu-items/GIALLA NOVELLA FORNO.png",
+        price: 9,
       },
     ],
   },
@@ -137,18 +157,20 @@ export const MENU_CATEGORIES: MenuCategory[] = [
       {
         name: "Polpette al Sugo",
         description: "Polpette di vitello con pomodoro pelato e scalogno",
-        longDescription: "Il massimo della tradizione italiana: un purè di patate liscio e burroso che accoglie polpette di vitello tenere, cotte lentamente in un sugo di pomodoro profumato allo scalogno. Un piatto che scalda il cuore.",
-        ingredients: ["Patate", "Carne di vitello scelta", "Pomodori pelati San Marzano", "Scalogno", "Burro", "Parmigiano Reggiano", "Latte", "Uova", "Sale e basilico"],
+        longDescription: "Purè di patate liscio e burroso con polpette di vitello tenere, cotte lentamente in un sugo di pomodoro profumato allo scalogno.",
+        ingredients: ["Patate", "Carne di vitello", "Pomodori pelati San Marzano", "Scalogno", "Burro", "Parmigiano Reggiano", "Latte", "Uova", "Sale e basilico"],
         allergens: ["GF", "U", "L"],
-        image: "/images/item-puree-polpette.jpg"
+        image: "/menu-items/PUREE POLPETTE SUGO.jpg",
+        price: 13,
       },
       {
-        name: "Polipo e Olive Nere",
+        name: "Polipo, Olive Nere e Julienne",
         description: "Polipo, aglio, prezzemolo, vino bianco, olive e capperi",
-        longDescription: "Un abbinamento gourmet che porta il mare nel piatto. Il purè vellutato fa da base a un polipo tenerissimo, saltato in padella con olive taggiasche, capperi e una sfumatura di vino bianco per un gusto mediterraneo intenso.",
+        longDescription: "Purè vellutato con polipo tenero, olive taggiasche, capperi e una julienne di verdure fresche.",
         ingredients: ["Patate", "Polipo fresco", "Olive nere taggiasche", "Capperi", "Vino bianco", "Aglio", "Prezzemolo fresco", "Olio EVO", "Burro", "Sale"],
         allergens: ["GF", "L", "M"],
-        image: "/images/item-puree-polipo-2.jpg"
+        image: "/menu-items/PUREE POLIPO OLIVE.jpg",
+        price: 16,
       },
     ],
   },
@@ -161,42 +183,47 @@ export const MENU_CATEGORIES: MenuCategory[] = [
       {
         name: "4 Formaggi",
         description: "Parmigiano, gorgonzola, taleggio, scamorza",
-        longDescription: "Gnocchi di patate fatti in casa, conditi con una salsa densa e cremosa realizzata fondendo quattro eccellenze casearie italiane. Il mix perfetto tra la dolcezza del taleggio e il carattere del gorgonzola.",
+        longDescription: "Gnocchi di patate fatti in casa con una salsa densa e cremosa di quattro eccellenze casearie italiane.",
         ingredients: ["Gnocchi di patate (Farina GF)", "Parmigiano Reggiano", "Gorgonzola DOP", "Taleggio", "Scamorza affumicata", "Latte", "Burro", "Sale"],
         allergens: ["GF", "U", "L"],
-        image: "/images/item-gnocchi-4formaggi.jpg"
+        image: "/menu-items/GNOCCHI 4 FORMAGGI.jpg",
+        price: 12,
       },
       {
         name: "Carbonara",
         description: "Pecorino, uovo, pepe nero, parmigiano e bacon",
-        longDescription: "La celebre ricetta romana reinterpretata sui nostri gnocchi. Una crema dorata a base di tuorli d'uovo e pecorino romano, arricchita da pepe nero macinato fresco e bacon croccante per un'esplosione di sapore sapido e deciso.",
+        longDescription: "La celebre ricetta romana reinterpretata sui nostri gnocchi con crema di tuorli, pecorino e bacon croccante.",
         ingredients: ["Gnocchi di patate (Farina GF)", "Tuorli d'uovo", "Pecorino Romano DOP", "Parmigiano Reggiano", "Bacon croccante", "Pepe nero", "Sale"],
         allergens: ["GF", "U", "L"],
-        image: "/images/item-gnocchi-carbonara.jpg"
+        image: "/menu-items/GNOCCHI CARBONARA.png",
+        price: 13,
       },
       {
         name: "Sorrentina",
         description: "Pomodori pelati, scalogno, basilico, parmigiano",
-        longDescription: "Un classico della cucina campana: gnocchi morbidi immersi in un sugo di pomodoro San Marzano verace, profumato al basilico fresco. Una spolverata generosa di parmigiano completa questo piatto fresco e solare.",
+        longDescription: "Gnocchi morbidi immersi in un sugo di pomodoro San Marzano verace, profumato al basilico fresco.",
         ingredients: ["Gnocchi di patate (Farina GF)", "Pomodori pelati", "Scalogno", "Basilico fresco", "Parmigiano Reggiano", "Olio EVO", "Sale"],
         allergens: ["GF", "U", "L"],
-        image: "/images/item-gnocchi-sorrentina.jpg"
+        image: "/menu-items/GNOCCHI SORRENTINA.jpg",
+        price: 11,
       },
       {
-        name: "Funghi e Salsiccia",
+        name: "Funghi Porcini e Salsiccia",
         description: "Champignon, scalogno, salsiccia artigianale, vino rosso",
-        longDescription: "Un condimento rustico e saporito: funghi champignon trifolati con salsiccia di suino artigianale, sfumata al vino rosso per una nota aromatica profonda. Un abbinamento autunnale che si sposa divinamente con la morbidezza degli gnocchi.",
+        longDescription: "Funghi champignon trifolati con salsiccia di suino artigianale, sfumata al vino rosso.",
         ingredients: ["Gnocchi di patate (Farina GF)", "Funghi champignon", "Salsiccia fresca di suino", "Vino rosso", "Scalogno", "Olio EVO", "Sale e prezzemolo"],
         allergens: ["GF", "U"],
-        image: "/images/item-gnocchi-funghi.jpg"
+        image: "/menu-items/GNOCCHI FUNGHI SALSICCIA.jpg",
+        price: 14,
       },
       {
         name: "Gamberi e Zucchine",
         description: "Gamberi argentini al brandy, zucchine con basilico",
-        longDescription: "Un'opzione raffinata e leggera: gamberi argentini sfumati al brandy che incontrano la dolcezza delle zucchine spadellate. Il basilico fresco aggiunge una nota aromatica che esalta la freschezza degli ingredienti di mare.",
+        longDescription: "Gamberi argentini sfumati al brandy con zucchine spadellate e basilico fresco.",
         ingredients: ["Gnocchi di patate (Farina GF)", "Gamberi argentini", "Zucchine", "Brandy", "Aglio", "Basilico fresco", "Olio EVO", "Sale"],
         allergens: ["GF", "U", "C"],
-        image: "/images/item-gnocchi-gamberi.jpg"
+        image: "/menu-items/GNOCCHI GAMBERI ZUCCHINE.jpg",
+        price: 16,
       },
     ],
   },
@@ -209,34 +236,38 @@ export const MENU_CATEGORIES: MenuCategory[] = [
       {
         name: "Viola Salmone",
         description: "Patata viola, salmone marinato agli agrumi, guacamole",
-        longDescription: "Una splendida patata viola tagliata a barchetta, farcita con un fresco guacamole artigianale e sormontata da tartare di salmone marinato agli agrumi. Un piatto colorato, salutare e ricco di contrasti gustativi.",
+        longDescription: "Patata viola a barchetta farcita con guacamole artigianale e tartare di salmone marinato agli agrumi.",
         ingredients: ["Patata viola", "Salmone fresco", "Avocado", "Lime", "Arancia", "Olio EVO", "Sale e pepe rosa"],
         allergens: ["P"],
-        image: "/images/item-barchetta-salmone.jpg"
+        image: "/menu-items/BARCHETTA SALMONE.png",
+        price: 16,
       },
       {
-        name: "Viola Polipo",
+        name: "Viola Polipo e Olive",
         description: "Patata viola, polipo, olive taggiasche e capperi",
-        longDescription: "L'eleganza della patata viola si sposa con la tradizione marinara. La barchetta accoglie un'insalata di polipo tenero, olive taggiasche saporite e capperi dissalati, il tutto condito con olio extravergine d'oliva di alta qualità.",
+        longDescription: "Patata viola a barchetta con insalata di polipo tenero, olive taggiasche e capperi dissalati.",
         ingredients: ["Patata viola", "Polipo fresco", "Olive taggiasche", "Capperi", "Prezzemolo", "Olio EVO", "Sale"],
         allergens: ["M"],
-        image: "/images/item-barchetta-polipo.jpg"
+        image: "/menu-items/BARCHETTA POLPO.jpg",
+        price: 16,
       },
       {
         name: "Rossa Funghi, Salsiccia e Taleggio",
         description: "Patata rossa con funghi, salsiccia e taleggio fondente",
-        longDescription: "Una proposta intensa e gratificante: barchetta di patata rossa farcita con un mix di funghi saltati e salsiccia artigianale, il tutto gratinato con taleggio DOP fondente che unisce i sapori in un abbraccio cremoso.",
+        longDescription: "Barchetta di patata rossa farcita con funghi saltati, salsiccia artigianale e taleggio DOP fondente.",
         ingredients: ["Patata rossa", "Funghi misti", "Salsiccia di suino", "Taleggio DOP", "Olio EVO", "Aglio", "Sale"],
         allergens: ["L"],
-        image: "/images/item-barchetta-funghi.jpg"
+        image: "/menu-items/BARCHETTA PORCINI SALSICCIA.jpg",
+        price: 14,
       },
       {
         name: "Gialla Picanha e Chimichurri",
-        description: "Patata gialla with picanha alle erbe e salsa chimichurri",
-        longDescription: "Un incontro tra Italia e Sud America: barchetta di patata gialla che ospita fettine di picanha di manzo cucinata a bassa temperatura e rifinita con una salsa chimichurri aromatica e leggermente piccante.",
+        description: "Patata gialla con picanha alle erbe e salsa chimichurri",
+        longDescription: "Barchetta di patata gialla con fettine di picanha di manzo e salsa chimichurri aromatica.",
         ingredients: ["Patata gialla", "Picanha di manzo", "Prezzemolo", "Origano", "Aglio", "Aceto di vino rosso", "Peperoncino", "Olio EVO", "Sale"],
         allergens: [],
-        image: "/images/item-barchetta-picanha.jpg"
+        image: "/menu-items/BARCHETTA PICANHA CHIMICHURRI.jpg",
+        price: 15,
       },
     ],
   },
@@ -249,42 +280,38 @@ export const MENU_CATEGORIES: MenuCategory[] = [
       {
         name: "Viola Funghi e Salsiccia",
         description: "Schiacciata di patata viola con funghi e salsiccia",
-        longDescription: "Due dischi di patata viola schiacciati e cotti sulla piastra fino a diventare croccanti, che racchiudono un ripieno generoso di funghi trifolati e salsiccia saporita. Una reinterpretazione innovativa del panino classico.",
+        longDescription: "Due dischi di patata viola schiacciati e croccanti, ripieni di funghi trifolati e salsiccia saporita.",
         ingredients: ["Patata viola", "Funghi champignon", "Salsiccia fresca", "Olio EVO", "Aglio", "Sale"],
         allergens: [],
-        image: "/images/item-schiacciata-funghi.jpg"
+        image: "/menu-items/SCHIACCIATA VIOLA SALSICCIA FUNGHI.png",
+        price: 12,
       },
       {
         name: "Rossa Speck e Brie",
         description: "Schiacciata di patata rossa con speck e brie cremoso",
-        longDescription: "La schiacciata di patata rossa, sottile e croccante, fa da guscio a fette di speck saporito e brie fondente. Il calore della patata scioglie dolcemente il formaggio, creando un contrasto perfetto con la sapidità dello speck.",
+        longDescription: "Schiacciata di patata rossa croccante con speck saporito e brie fondente.",
         ingredients: ["Patata rossa", "Speck dell'Alto Adige", "Formaggio Brie", "Olio EVO", "Sale"],
         allergens: ["L"],
-        image: "/images/item-schiacciata-speck.jpg"
+        image: "/menu-items/SCHIACCIATA ROSSA SPECK BRIE.png",
+        price: 11,
       },
-    ],
-  },
-  {
-    id: "waffle",
-    name: "Waffle",
-    description: "Waffle di patata croccante fuori, morbido dentro. Base per abbinamenti gourmet.",
-    image: "/images/menu-waffle.jpg",
-    items: [
       {
         name: "Rossa Uovo e Avocado",
-        description: "Waffle di patata rossa, uovo sodo, avocado e salsa all'erba cipollina",
-        longDescription: "Un waffle salato innovativo preparato con patata rossa, servito con fette di avocado fresco, uovo sodo biologico e una delicata salsa allo yogurt arricchita da erba cipollina fresca. Perfetto per un brunch o un pranzo leggero.",
-        ingredients: ["Patata rossa", "Uovo sodo", "Avocado", "Yogurt greco", "Erba cipollina", "Olio EVO", "Sale"],
-        allergens: ["U", "L"],
-        image: "/images/item-waffle-uovo.jpg"
+        description: "Schiacciata di patata rossa con uovo sodo e avocado",
+        longDescription: "Schiacciata di patata rossa farcita con uovo sodo, avocado fresco e salsa all'erba cipollina.",
+        ingredients: ["Patata rossa", "Uovo sodo", "Avocado", "Erba cipollina", "Olio EVO", "Sale"],
+        allergens: ["U"],
+        image: "/menu-items/SCHICCIATA ROSSA UOVA AVOCADO.jpg",
+        price: 13,
       },
       {
         name: "Gialla Salmone e Burro Salato",
-        description: "Waffle di patata gialla, salmone fresco marinato e burro salato",
-        longDescription: "Il waffle di patata gialla acquista una nota lussuosa grazie all'abbinamento con salmone fresco marinato in casa. Una punta di burro salato di alta qualità si scioglie sul waffle caldo, esaltando la sapidità del pesce.",
+        description: "Schiacciata di patata gialla con salmone e burro salato",
+        longDescription: "Schiacciata di patata gialla con salmone fresco marinato e burro salato di alta qualità.",
         ingredients: ["Patata gialla", "Salmone fresco marinato", "Burro salato", "Aneto", "Pepe nero", "Sale"],
         allergens: ["P", "L"],
-        image: "/images/item-waffle-salmone.jpg"
+        image: "/menu-items/SCHIACCIATA SALMONE BURRO.png",
+        price: 13,
       },
     ],
   },
@@ -297,34 +324,38 @@ export const MENU_CATEGORIES: MenuCategory[] = [
       {
         name: "Mediterranea",
         description: "Feta greca, San Marzano, cipolla di Tropea, olive taggiasche, fiori di cappero",
-        longDescription: "La freschezza assoluta: patate al vapore servite fredde con un'esplosione di sapori mediterranei. Feta greca sbriciolata, pomodori San Marzano dolcissimi, cipolla di Tropea croccante, olive e fiori di cappero profumati.",
+        longDescription: "Patate al vapore con feta greca, pomodori San Marzano, cipolla di Tropea, olive e fiori di cappero.",
         ingredients: ["Patate", "Feta greca", "Pomodori San Marzano", "Cipolla rossa di Tropea", "Olive taggiasche", "Fiori di cappero", "Origano", "Olio EVO"],
         allergens: ["L"],
-        image: "/images/item-vapore-mediterranea.jpg"
+        image: "/menu-items/VAPORE MEDITERRANEA.jpg",
+        price: 11,
       },
       {
-        name: "Polipo, Olive e Julienne",
+        name: "Polipo, Olive Nere e Julienne di Verdure",
         description: "Polipo con julienne di verdure, olive taggiasche, prezzemolo e limone",
-        longDescription: "Un'insalata di mare leggera e raffinata. Il polipo tenero cotto al vapore incontra la croccantezza di una julienne di verdure fresche di stagione, arricchita da olive taggiasche e un'emulsione di limone e olio EVO.",
+        longDescription: "Polipo tenero al vapore con julienne di verdure fresche, olive taggiasche e emulsione di limone.",
         ingredients: ["Patate", "Polipo fresco", "Zucchine", "Carote", "Olive taggiasche", "Limone", "Prezzemolo", "Olio EVO", "Sale"],
         allergens: ["M"],
-        image: "/images/item-vapore-polipo.jpg"
+        image: "/menu-items/VAPORE POLPO OLIVE JULIENNE.jpg",
+        price: 16,
       },
       {
         name: "Gamberi e Zucchine",
         description: "Gamberi argentini e zucchine con olio EVO e basilico",
-        longDescription: "Un abbinamento semplice ma perfetto. Patate e gamberi argentini cotti dolcemente al vapore, serviti con zucchine novelle spadellate e un profumo intenso di basilico fresco. Una scelta salutare senza rinunciare al gusto.",
+        longDescription: "Gamberi argentini al vapore con zucchine novelle spadellate e basilico fresco.",
         ingredients: ["Patate", "Gamberi argentini", "Zucchine", "Basilico fresco", "Olio EVO", "Sale marino"],
         allergens: ["C"],
-        image: "/images/item-vapore-gamberi.jpg"
+        image: "/menu-items/VAPORE GAMBERI ZUCCHINE.jpg",
+        price: 16,
       },
       {
         name: "Uovo, Avocado e Salmone",
         description: "Uovo sodo, avocado fresco e salmone marinato",
-        longDescription: "Un piatto bilanciato e ricco di nutrienti: le patate al vapore fanno da base a fette di avocado cremoso, uovo sodo cotto alla perfezione e filetti di salmone marinato agli agrumi. Una proposta completa e soddisfacente.",
+        longDescription: "Patate al vapore con fette di avocado, uovo sodo e filetti di salmone marinato agli agrumi.",
         ingredients: ["Patate", "Salmone marinato", "Avocado", "Uovo sodo", "Olio EVO", "Sale", "Pepe nero"],
         allergens: ["U", "P"],
-        image: "/images/item-vapore-uovo.jpg"
+        image: "/menu-items/VAPORE SALMONE UOVA AVOCADO.jpg",
+        price: 16,
       },
     ],
   },
@@ -337,26 +368,29 @@ export const MENU_CATEGORIES: MenuCategory[] = [
       {
         name: "Carbonara",
         description: "Pecorino romano, uovo, pepe nero, parmigiano e bacon croccante",
-        longDescription: "La nostra interpretazione della Jacket Potato romana. Una patata intera di grandi dimensioni, cotta al forno fino a diventare tenera, aperta e farcita con una ricca crema carbonara, pecorino e bacon saporito.",
+        longDescription: "Patata intera al forno farcita con ricca crema carbonara, pecorino e bacon saporito.",
         ingredients: ["Patata intera", "Tuorli d'uovo", "Pecorino Romano", "Parmigiano Reggiano", "Bacon croccante", "Pepe nero", "Sale"],
         allergens: ["U", "L"],
-        image: "/images/item-jacket-carbonara.jpg"
+        image: "/menu-items/JACKET CARBONARA.jpg",
+        price: 13,
       },
       {
         name: "Speck e Brie",
         description: "Speck croccante e brie fondente",
-        longDescription: "Una Jacket Potato classica e intramontabile: il calore del tubero cotto al forno fonde lentamente le fette di brie, mentre lo speck croccante aggiunge una nota di fumo e croccantezza a ogni boccone.",
+        longDescription: "Patata intera al forno con speck croccante e brie fondente.",
         ingredients: ["Patata intera", "Speck dell'Alto Adige", "Formaggio Brie", "Olio EVO", "Sale"],
         allergens: ["L"],
-        image: "/images/item-jacket-speck.jpg"
+        image: "/images/item-jacket-speck.jpg",
+        price: 14,
       },
       {
         name: "Salsiccia, Porcini e Gorgonzola",
         description: "Salsiccia artigianale, funghi porcini e gorgonzola DOP",
-        longDescription: "Per i palati più esigenti: patata intera farcita con funghi porcini trifolati, salsiccia saporita e una generosa dose di gorgonzola DOP che rende il tutto incredibilmente cremoso e saporito.",
+        longDescription: "Patata intera al forno con funghi porcini trifolati, salsiccia saporita e gorgonzola DOP.",
         ingredients: ["Patata intera", "Funghi porcini", "Salsiccia di suino", "Gorgonzola DOP", "Olio EVO", "Aglio", "Sale"],
         allergens: ["L"],
-        image: "/images/item-jacket-salsiccia.jpg"
+        image: "/menu-items/JACKET SALSICCIA PORCINI GORGONZOLA.jpg",
+        price: 15,
       },
     ],
   },
@@ -367,20 +401,49 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     image: "/images/menu-tramezzino.jpg",
     items: [
       {
-        name: "Prosciutto Cotto e Brie",
-        description: "Prosciutto cotto di qualità e brie cremoso",
-        longDescription: "L'idea geniale: due fette di patata schiacciate e grigliate che sostituiscono il pane, farcite con prosciutto cotto scelto e brie fondente. Un'alternativa senza glutine al tramezzino tradizionale, calda e filante.",
-        ingredients: ["Patate", "Prosciutto cotto di alta qualità", "Formaggio Brie", "Olio EVO", "Sale"],
+        name: "Speck e Taleggio",
+        description: "Speck stagionato e taleggio fondente",
+        longDescription: "Due fette di patata schiacciate con speck croccante e taleggio fondente.",
+        ingredients: ["Patate", "Speck", "Taleggio DOP", "Olio EVO", "Sale"],
         allergens: ["L"],
-        image: "/images/item-tramezzino-prosciutto.jpg"
+        image: "/menu-items/TRAMEZZINO SPECK TALEGGIO.jpg",
+        price: 12,
       },
       {
-        name: "Speck, Taleggio e Zucchine",
-        description: "Speck stagionato, taleggio fondente e zucchine grigliate",
-        longDescription: "Un tramezzino di patate dal gusto deciso: speck croccante e taleggio fondente si uniscono alle zucchine grigliate per un ripieno ricco e bilanciato, racchiuso tra due fette di patata perfettamente dorate.",
-        ingredients: ["Patate", "Speck", "Taleggio DOP", "Zucchine grigliate", "Olio EVO", "Sale"],
+        name: "Cotto al Forno e Brie",
+        description: "Prosciutto cotto di qualità e brie cremoso",
+        longDescription: "Due fette di patata schiacciate con prosciutto cotto scelto e brie fondente.",
+        ingredients: ["Patate", "Prosciutto cotto di alta qualità", "Formaggio Brie", "Olio EVO", "Sale"],
         allergens: ["L"],
-        image: "/images/item-tramezzino-speck.jpg"
+        image: "/menu-items/TRAMEZZINO COTTO BRIE_.jpg",
+        price: 12,
+      },
+      {
+        name: "Roast Beef",
+        description: "Roast beef marinato alle erbe",
+        longDescription: "Due fette di patata schiacciate con fette di roast beef marinato alle erbe aromatiche.",
+        ingredients: ["Patate", "Roast beef", "Erbe aromatiche", "Olio EVO", "Sale"],
+        allergens: [],
+        image: "/menu-items/TRAMEZZINO ROAST-BEEF_.jpg",
+        price: 15,
+      },
+      {
+        name: "Porchetta",
+        description: "Porchetta artigianale croccante",
+        longDescription: "Due fette di patata schiacciate con porchetta artigianale croccante.",
+        ingredients: ["Patate", "Porchetta artigianale", "Olio EVO", "Sale"],
+        allergens: [],
+        image: "/menu-items/TRAMEZZINO PORCHETTA.jpg",
+        price: 12,
+      },
+      {
+        name: "Salmone e Avocado",
+        description: "Salmone fresco marinato e avocado cremoso",
+        longDescription: "Due fette di patata schiacciate con salmone fresco marinato e fette di avocado.",
+        ingredients: ["Patate", "Salmone fresco marinato", "Avocado", "Olio EVO", "Sale"],
+        allergens: ["P"],
+        image: "/menu-items/TRAMEZZINO SALMONE AVOCADO.jpg",
+        price: 16,
       },
     ],
   },

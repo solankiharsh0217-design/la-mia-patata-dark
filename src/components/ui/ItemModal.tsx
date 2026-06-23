@@ -75,7 +75,14 @@ export default function ItemModal({ item, onClose }: ItemModalProps) {
             {/* Text Section */}
             <div className="p-6 md:p-8 space-y-6">
               <div className="space-y-2">
-                <h2 className="text-3xl font-serif text-white">{item.name}</h2>
+                <div className="flex items-start justify-between gap-4">
+                  <h2 className="text-3xl font-serif text-white">{item.name}</h2>
+                  {item.price && (
+                    <span className="text-[#D4AF37] font-serif font-bold text-2xl whitespace-nowrap">
+                      €{item.price}
+                    </span>
+                  )}
+                </div>
                 <p className="text-zinc-400 text-lg leading-relaxed">{item.description}</p>
               </div>
 
