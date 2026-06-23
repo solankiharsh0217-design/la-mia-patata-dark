@@ -78,7 +78,7 @@ export default function ItemModal({ item, onClose }: ItemModalProps) {
                 <div className="flex items-start justify-between gap-4">
                   <h2 className="text-3xl font-serif text-white">{item.name}</h2>
                   {item.price && (
-                    <span className="text-[#D4AF37] font-serif font-bold text-2xl whitespace-nowrap">
+                    <span className="text-[#D4AF37] font-serif font-bold text-3xl md:text-4xl whitespace-nowrap">
                       €{item.price}
                     </span>
                   )}

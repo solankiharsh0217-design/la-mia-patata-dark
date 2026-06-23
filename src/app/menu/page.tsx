@@ -106,7 +106,7 @@ export default function MenuPage() {
                             {item.name}
                           </h3>
                           {item.price && (
-                            <span className="text-[#D4AF37] font-serif font-bold text-lg whitespace-nowrap">
+                            <span className="text-[#D4AF37] font-serif font-bold text-2xl md:text-3xl whitespace-nowrap">
                               €{item.price}
                             </span>
                           )}
